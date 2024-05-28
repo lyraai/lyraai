@@ -2,7 +2,7 @@
 import 'tailwindcss/tailwind.css';
 import '../src/app/styles/globals.css';
 
-import Navbar from '../src/app/components/navbar';
+import Navbar from '../src/app/components/navBar';
 
 function MyApp({ Component, pageProps }) {
   return (
