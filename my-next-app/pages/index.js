@@ -1,6 +1,8 @@
 // pages/index.tsx
 import Head from 'next/head';
 
+import SignUpButton from '../src/app/components/signUpButton';
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
@@ -23,7 +25,9 @@ export default function Home() {
             placeholder="Input the URL of YouTube video"
             className="w-2/3 p-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-teal-500"
           />
-          <button className="ml-2 px-4 py-2 bg-teal-500 text-white rounded-lg shadow hover:bg-teal-600 transition">Go</button>
+          <button className="ml-2 px-4 py-2 bg-teal-500 text-white rounded-lg shadow hover:bg-teal-600 transition">
+            Go
+          </button>
         </div>
       </main>
     </div>
