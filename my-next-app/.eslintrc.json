@@ -1,20 +1,24 @@
 {
   "extends": [
-    "next",
     "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended",
+    "prettier",
     "plugin:prettier/recommended"
   ],
-  "plugins": ["@typescript-eslint", "prettier", "simple-import-sort"],
+  "plugins": ["tailwindcss"],
   "rules": {
-    "prettier/prettier": "error",
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error",
-    "@typescript-eslint/explicit-module-boundary-types": "off"
+    "tailwindcss/no-custom-classname": "off",
+    "tailwindcss/classnames-order": "off"
   },
   "settings": {
-    "react": {
-      "version": "detect"
+    "tailwindcss": {
+      "callees": ["cn", "cva"],
+      "config": "tailwind.config.js"
     }
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "parser": "@typescript-eslint/parser"
+    }
+  ]
 }

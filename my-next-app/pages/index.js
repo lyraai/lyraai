@@ -7,7 +7,10 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <Head>
         <title>Lyra - Unlock Your Power of Deep Understanding</title>
-        <meta name="description" content="Lyra - Unlock Your Power of Deep Understanding" />
+        <meta
+          name="description"
+          content="Lyra - Unlock Your Power of Deep Understanding"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex flex-col items-center justify-center min-h-screen pt-16 px-4">
