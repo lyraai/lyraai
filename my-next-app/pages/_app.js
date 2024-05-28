@@ -1,7 +1,8 @@
 // pages/_app.js
 import 'tailwindcss/tailwind.css';
-import '../src/app/styles/globals.css'; 
-import Navbar from '../src/app/components/Navbar';
+import '../src/app/styles/globals.css';
+
+import Navbar from '../src/app/components/navbar';
 
 function MyApp({ Component, pageProps }) {
   return (
