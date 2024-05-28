@@ -1,6 +1,6 @@
 // pages/index.js
 import Head from 'next/head';
-import SignUpButton from '../src/app/components/SignUpButton';
+import SignUpButton from '../src/app/components/signUpButton';
 
 export default function Home() {
   return (
