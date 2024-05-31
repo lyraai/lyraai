@@ -1,8 +1,26 @@
 // pages/index.js
+
 import Head from 'next/head';
 import SignUpButton from '../src/app/components/signUpButton';
+import { useEffect, useState } from 'react';
+import { getAccessToken } from '../src/app/utils/googleAuth';
 
 export default function Home() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const result = await getAccessToken();
+        setData(result);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <Head>
@@ -28,6 +46,14 @@ export default function Home() {
           </button>
         </div>
         <SignUpButton />
+        {data && (
+          <div className="mt-8">
+            <h2 className="text-2xl font-semibold">API Response:</h2>
+            <pre className="bg-gray-100 p-4 rounded-lg shadow-sm">
+              {JSON.stringify(data, null, 2)}
+            </pre>
+          </div>
+        )}
       </main>
     </div>
   );
