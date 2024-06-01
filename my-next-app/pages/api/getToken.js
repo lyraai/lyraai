@@ -9,12 +9,13 @@ export default async function handler(req, res) {
     });
 
     const client = await auth.getClient();
+    const projectId = await auth.getProjectId();
     const url = 'https://flask-hello-world-ys6elaj32q-an.a.run.app';
 
-    const response = await client.request({ url });
-    res.status(200).json(response.data);
+    const result = await client.request({ url });
+    res.status(200).json(result.data);
   } catch (error) {
     console.error('Error getting access token:', error);
-    res.status(500).json({ error: 'Failed to get access token' });
+    res.status(500).json({ error: 'Error getting access token' });
   }
 }
