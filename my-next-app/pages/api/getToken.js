@@ -47,6 +47,48 @@ import { GoogleAuth } from 'google-auth-library';
 //   }
 // }
 
+// export default async function handler(req, res) {
+//   try {
+//     console.log('Starting getToken handler');
+//     if (!process.env.GOOGLE_CREDENTIALS) {
+//       console.error('GOOGLE_CREDENTIALS environment variable is missing');
+//       throw new Error('GOOGLE_CREDENTIALS environment variable is missing');
+//     }
+
+//     const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS);
+//     console.log('Parsed credentials successfully');
+
+//     const auth = new GoogleAuth({
+//       credentials,
+//       scopes: ['https://www.googleapis.com/auth/cloud-platform'],
+//     });
+
+//     const client = await auth.getClient();
+//     const projectId = await auth.getProjectId();
+//     console.log(`Using project ID: ${projectId}`);
+
+//     const accessTokenResponse = await client.getAccessToken();
+//     const accessToken = accessTokenResponse.token;
+//     if (!accessToken) {
+//       throw new Error('Failed to obtain access token');
+//     }
+//     console.log(`Access Token: ${accessToken}`);
+
+//     const url = 'https://flask-hello-world-ys6elaj32q-an.a.run.app';
+
+//     const result = await client.request({
+//       url,
+//       headers: {
+//         Authorization: `Bearer ${accessToken}`,
+//       },
+//     });
+//     console.log('API request successful', result.data);
+//     res.status(200).json(result.data);
+//   } catch (error) {
+//     console.error('Error getting access token:', error);
+//     res.status(500).json({ error: error.message });
+//   }
+// }
 export default async function handler(req, res) {
   try {
     console.log('Starting getToken handler');
@@ -60,32 +102,31 @@ export default async function handler(req, res) {
 
     const auth = new GoogleAuth({
       credentials,
-      scopes: ['https://www.googleapis.com/auth/cloud-platform'],
     });
 
-    const client = await auth.getClient();
-    const projectId = await auth.getProjectId();
-    console.log(`Using project ID: ${projectId}`);
-
-    const accessTokenResponse = await client.getAccessToken();
-    const accessToken = accessTokenResponse.token;
-    if (!accessToken) {
-      throw new Error('Failed to obtain access token');
-    }
-    console.log(`Access Token: ${accessToken}`);
-
     const url = 'https://flask-hello-world-ys6elaj32q-an.a.run.app';
+
+    // Get the ID token client
+    const client = await auth.getIdTokenClient(url);
+
+    // Get the ID token
+    const headers = await client.getRequestHeaders();
+    const idToken = headers.Authorization.split(' ')[1];
+    if (!idToken) {
+      throw new Error('Failed to obtain ID token');
+    }
+    console.log(`ID Token: ${idToken}`);
 
     const result = await client.request({
       url,
       headers: {
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${idToken}`,
       },
     });
     console.log('API request successful', result.data);
     res.status(200).json(result.data);
   } catch (error) {
-    console.error('Error getting access token:', error);
+    console.error('Error getting ID token:', error);
     res.status(500).json({ error: error.message });
   }
 }
