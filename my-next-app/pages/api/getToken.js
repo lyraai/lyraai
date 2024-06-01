@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS || '{}');
     const auth = new GoogleAuth({
       credentials,
-      scopes: ['https://www.googleapis.com/auth/cloud-platform']
+      scopes: ['https://www.googleapis.com/auth/cloud-platform'],
     });
 
     const client = await auth.getClient();

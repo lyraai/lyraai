@@ -5,9 +5,9 @@ export default function Navbar() {
   return (
     <nav className="flex justify-between items-center p-6 shadow-md bg-white">
       <div className="flex items-center">
-        <Image src="/logo-black.png" alt="Lyra Logo" width={100} height={100} />
+        <Image src="/logo-black.png" alt="Lyra Logo" width={150} height={150} />
       </div>
-      <div className="flex justify-between items-center space-x-6">
+      <div className="flex space-x-6 text-xl font-medium">
         <Link href="/" legacyBehavior>
           <a className="text-black">Home</a>
         </Link>
