@@ -24,8 +24,7 @@ body {
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
   background-color: #ffffff;
-  text-black:#2e2e2e;
-  color: #000000;
+  color: #2e2e2e;
   background: linear-gradient(
       to bottom,
       transparent,
@@ -45,7 +44,6 @@ a {
 
 nav {
   background-color: white;
-  text-black:#2e2e2e;
 }
 
 @layer utilities {
