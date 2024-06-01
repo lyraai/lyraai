@@ -37,9 +37,8 @@ export default function Preview() {
                 width="100%"
                 height="315"
                 src={`https://www.youtube.com/embed/${new URLSearchParams(
-                  new URL(videoUrl).search
+                  new URL(videoUrl).search,
                 ).get('v')}`}
-                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
