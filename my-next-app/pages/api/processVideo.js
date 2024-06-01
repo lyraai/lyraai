@@ -8,7 +8,7 @@ export default async function handler(req, res) {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${process.env.YOUR_API_KEY}`, // 根据需要添加
+          Authorization: `Bearer ${process.env.YOUTUBE_API_KEY}`, // 根据需要添加
         },
         body: JSON.stringify({ videoUrl }),
       },
