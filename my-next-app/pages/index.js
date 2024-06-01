@@ -112,6 +112,21 @@ export default function Home() {
   const router = useRouter();
   const [data, setData] = useState(null);
 
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch('/api/getToken');
+        const result = await response.json();
+        console.log('Fetched data:', result);
+        setData(result);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
