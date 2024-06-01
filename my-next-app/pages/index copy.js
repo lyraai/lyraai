@@ -6,8 +6,8 @@ import { useRouter } from 'next/router';
 export default function Home() {
   const [videoUrl, setVideoUrl] = useState('');
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState(null);
   const router = useRouter();
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
