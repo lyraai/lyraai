@@ -6,10 +6,10 @@ import Navbar from '../src/app/components/navBar';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
+    <div className="bg-white min-h-screen">
       <Navbar />
       <Component {...pageProps} />
-    </>
+    </div>
   );
 }
 
