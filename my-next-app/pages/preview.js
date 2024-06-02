@@ -21,10 +21,10 @@ export default function Preview() {
         pathname: '/results',
         query: {
           videoUrl,
-          data: JSON.stringify({ message: 'Video processed successfully' }),
+          data: JSON.stringify({ message: 'Video processed successfully!' }),
         },
       });
-    }, 3000); // simulate 3 seconds of processing time
+    }, 5000); // simulate 3 seconds of processing time
 
     return () => clearInterval(timer);
   }, [router, videoUrl]);
