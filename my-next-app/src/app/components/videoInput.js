@@ -45,7 +45,7 @@ export default function VideoInput({ initialUrl, fullWidth }) {
       </button>
       <input
         type="text"
-        placeholder="Input the URL of YouTube video"
+        placeholder="Input the URL of YouTube video~"
         value={videoUrl}
         onChange={(e) => setVideoUrl(e.target.value)}
         className="flex-grow p-3 pl-5 bg-gray-100 rounded-full shadow-sm focus:outline-none h-10"

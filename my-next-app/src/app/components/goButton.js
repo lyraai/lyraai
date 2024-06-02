@@ -7,7 +7,7 @@ const GoButton = ({ onClick, isDisabled }) => {
       onClick={!isDisabled ? onClick : null}
       className={`relative w-10 h-10 cursor-pointer rounded-full border-2 ${
         isDisabled
-          ? 'border-gray-300 bg-white'
+          ? 'border-gray-300 transparent'
           : 'border-teal-500 bg-white hover:bg-teal-500'
       } flex items-center justify-center transition-colors duration-300 group`}
     >

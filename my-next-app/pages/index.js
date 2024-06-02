@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Navbar from '../src/app/components/navBar';
 import VideoInput from '../src/app/components/videoInput';
+import AnimatedBackground from '../src/app/components/animatedBackground';
 
 export default function Home() {
   const [videoUrl, setVideoUrl] = useState('');
@@ -35,7 +36,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="relative min-h-screen bg-white overflow-hidden">
       <Head>
         <title>Lyra - Unlock Your Power of Deep Understanding</title>
         <meta
@@ -44,14 +45,17 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex flex-col items-center justify-center min-h-screen pt-16 px-4 sm:px-8 md:px-16 lg:px-32 xl:px-64">
-        <div className="w-full max-w-4xl">
-          <h1 className="text-6xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-9xl pb-10 font-bold text-left mb-4">
-            Unlock Your Power of Deep Understanding
-          </h1>
-          <VideoInput initialUrl={videoUrl} fullWidth={true} />
-        </div>
-      </main>
+      <div className="relative z-10">
+        <AnimatedBackground />
+        <main className="flex flex-col items-center justify-center min-h-screen px-4 sm:px-8 md:px-16 lg:px-32 xl:px-64">
+          <div className="w-full max-w-4xl">
+            <h1 className="text-6xl sm:text-6xl md:text-8xl lg:text-8xl xl:text-8xl pb-10 font-bold text-left mb-4">
+              Unlock Your Power of Deep Understanding
+            </h1>
+            <VideoInput initialUrl={videoUrl} fullWidth={true} />
+          </div>
+        </main>
+      </div>
     </div>
   );
 }
