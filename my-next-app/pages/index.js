@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Navbar from '../src/app/components/navBar';
 import VideoInput from '../src/app/components/videoInput';
-import AnimatedBackground from '../src/app/components/animatedBackground';
+import AnimatedBackground from '../src/app/components/background';
 
 export default function Home() {
   const [videoUrl, setVideoUrl] = useState('');
