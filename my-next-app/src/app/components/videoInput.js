@@ -1,7 +1,7 @@
 // src/app/components/videoInput.js
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import GoButton from './GoButton';
+import GoButton from './goButton';
 
 export default function VideoInput({ initialUrl, fullWidth }) {
   const [videoUrl, setVideoUrl] = useState(initialUrl || '');
