@@ -26,7 +26,7 @@ const AnimatedBackground = () => {
     p5.endShape();
 
     // 第二条线，稍微不同的波形参数和透明度
-    p5.stroke(themeColor + '40'); // 添加透明度 (50% 透明度)
+    p5.stroke(themeColor + '20'); // 添加透明度 (50% 透明度)
     p5.strokeWeight(20); // 更粗的线条
     p5.noFill();
     p5.beginShape();
@@ -37,7 +37,7 @@ const AnimatedBackground = () => {
     p5.endShape();
 
     // 第三条线，稍微不同的波形参数和透明度
-    p5.stroke(themeColor + '20'); // 更加透明 (25% 透明度)
+    p5.stroke(themeColor + '60'); // 更加透明 (25% 透明度)
     p5.strokeWeight(15); // 线条粗细
     p5.noFill();
     p5.beginShape();
