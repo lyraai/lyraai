@@ -4,6 +4,12 @@ import VideoPlayer from '../src/app/components/videoPlayer';
 import ChapterList from '../src/app/components/chapterList';
 import { useEffect, useState } from 'react';
 
+// 导入Material UI图标
+import DescriptionRoundedIcon from '@mui/icons-material/DescriptionRounded';
+import ForumRoundedIcon from '@mui/icons-material/ForumRounded';
+import QuizRoundedIcon from '@mui/icons-material/QuizRounded';
+import SummarizeRoundedIcon from '@mui/icons-material/SummarizeRounded';
+
 export default function Results() {
   const router = useRouter();
   const { videoUrl } = router.query;
@@ -15,7 +21,7 @@ export default function Results() {
     // 模拟获取章节和 transcript 数据
     setChapters([
       {
-        thumbnail: '/chapter1.png',
+        thumbnail: '/public/dummy/chapter1.png',
         title: 'Introduction example',
         timestamp: '0:00',
       },
@@ -68,10 +74,10 @@ export default function Results() {
   };
 
   return (
-    <div className="min-h-screen bg-white p-8">
+    <div className="min-h-screen bg-white py-0 lg:px-48 xl:px-96">
       <VideoInput initialUrl={videoUrl} />
-      <div className="flex flex-col md:flex-row">
-        <div className="md:w-2/3">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-1">
+        <div className="col-span-2">
           <VideoPlayer
             videoUrl={videoUrl}
             title="Blender Tutorial for Complete Beginners - Part 1"
@@ -80,68 +86,70 @@ export default function Results() {
             views="2.9M"
             date="6 months ago"
           />
-          <div className="mt-4">
+          <div className="w-full mt-4">
             <ChapterList chapters={chapters} />
           </div>
         </div>
-        <div className="md:w-1/3 md:pl-8">
-          <div className="flex justify-between items-center">
+        <div className="min-w-[600px] md:pl-8 ">
+          <div className="flex mb-4 p-1 bg-gray-100 rounded-full">
             <button
-              onClick={() => toggleView('transcript')}
-              className={`px-4 py-2 ${view === 'transcript' ? 'bg-teal-500 text-white' : 'bg-gray-200'}`}
+              onClick={() => toggleView('summary')}
+              className={`px-1 py-2 grow jusitfy-between items-center rounded-full ${view === 'summary' ? 'bg-teal-500 text-white' : 'bg-transparent text-gray-400'}`}
             >
-              Transcript
+              <DescriptionRoundedIcon className="mr-2" /> Summary
             </button>
             <button
-              onClick={() => toggleView('discussion')}
-              className={`px-4 py-2 ${view === 'discussion' ? 'bg-teal-500 text-white' : 'bg-gray-200'}`}
+              onClick={() => toggleView('transcript')}
+              className={`px-1 py-2 grow jusitfy-between items-center rounded-full ${view === 'transcript' ? 'bg-teal-500 text-white' : 'bg-transparent text-gray-400'}`}
             >
-              Discussion
+              <ForumRoundedIcon className="mr-2" /> Transcript
             </button>
             <button
               onClick={() => toggleView('quiz')}
-              className={`px-4 py-2 ${view === 'quiz' ? 'bg-teal-500 text-white' : 'bg-gray-200'}`}
+              className={`px-1 py-2 grow jusitfy-between items-center rounded-full ${view === 'quiz' ? 'bg-teal-500 text-white' : 'bg-transparent text-gray-400'}`}
             >
-              Quiz
+              <QuizRoundedIcon className="mr-2" /> Quiz
             </button>
             <button
-              onClick={() => toggleView('summary')}
-              className={`px-4 py-2 ${view === 'summary' ? 'bg-teal-500 text-white' : 'bg-gray-200'}`}
+              onClick={() => toggleView('discussion')}
+              className={`px-1 py-2 grow jusitfy-between items-center rounded-full ${view === 'discussion' ? 'bg-teal-500 text-white' : 'bg-transparent text-gray-400'}`}
             >
-              Summary
+              <SummarizeRoundedIcon className="mr-2" /> Discussion
             </button>
           </div>
-          {view === 'transcript' && (
-            <div className="mt-4">
-              <h2 className="text-xl font-semibold">Transcript</h2>
-              <div className="overflow-y-auto max-h-96">
-                {transcript.map((entry, index) => (
-                  <div key={index} className="mb-4">
-                    <p className="text-blue-500">{entry.time}</p>
-                    <p>{entry.text}</p>
-                  </div>
-                ))}
+          <div className="mt-4">
+            {view === 'transcript' && (
+              <div>
+                <h2 className="text-xl font-semibold mb-4">Transcript</h2>
+                <div className="overflow-y-auto max-h-96">
+                  {transcript.map((entry, index) => (
+                    <div key={index} className="mb-4">
+                      <p className="text-blue-500">{entry.time}</p>
+                      <p>{entry.text}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
-          {view === 'discussion' && (
-            <div className="mt-4">
-              <h2 className="text-xl font-semibold">Discussion</h2>
-              {/* 在这里添加 discussion 内容 */}
-            </div>
-          )}
-          {view === 'quiz' && (
-            <div className="mt-4">
-              <h2 className="text-xl font-semibold">Quiz</h2>
-              {/* 在这里添加 quiz 内容 */}
-            </div>
-          )}
-          {view === 'summary' && (
-            <div className="mt-4">
-              <h2 className="text-xl font-semibold">Summary</h2>
-              {/* 在这里添加 summary 内容 */}
-            </div>
-          )}
+            )}
+            {view === 'discussion' && (
+              <div>
+                <h2 className="text-xl font-semibold mb-4">Discussion</h2>
+                {/* 在这里添加 discussion 内容 */}
+              </div>
+            )}
+            {view === 'quiz' && (
+              <div>
+                <h2 className="text-xl font-semibold mb-4">Quiz</h2>
+                {/* 在这里添加 quiz 内容 */}
+              </div>
+            )}
+            {view === 'summary' && (
+              <div>
+                <h2 className="text-xl font-semibold mb-4">Summary</h2>
+                {/* 在这里添加 summary 内容 */}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

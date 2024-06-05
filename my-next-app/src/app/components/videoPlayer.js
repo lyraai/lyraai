@@ -1,4 +1,4 @@
-// src/app/components/VideoPlayer.js
+// src/app/components/videoPlayer.js
 import React from 'react';
 
 export default function VideoPlayer({
@@ -10,7 +10,7 @@ export default function VideoPlayer({
   date,
 }) {
   return (
-    <div className="max-w-4xl mx-auto my-8">
+    <div className="max-w-6xl">
       <div className="relative overflow-hidden pb-[56.25%] h-0">
         <iframe
           className="absolute top-0 left-0 w-full h-full"
@@ -40,14 +40,3 @@ export default function VideoPlayer({
     </div>
   );
 }
-// // src/app/components/VideoPlayer.js
-// import Image from 'next/image';
-// import dummyVideo from '../../public/dummy/videoplayer.png';
-
-// export default function VideoPlayer() {
-//   return (
-//     <div className="relative w-full h-full">
-//       <Image src={dummyVideo} alt="Video Player" layout="responsive" />
-//     </div>
-//   );
-// }

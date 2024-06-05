@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export default function chapterList({ chapters }) {
+export default function ChapterList({ chapters }) {
   return (
     <div className="flex space-x-4 overflow-x-auto">
       {chapters.map((chapter, index) => (
