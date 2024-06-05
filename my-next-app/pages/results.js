@@ -4,7 +4,7 @@ import VideoPlayer from '../src/app/components/videoPlayer';
 import ChapterList from '../src/app/components/chapterList';
 import { useEffect, useState } from 'react';
 
-// 导入Material UI图标
+// 导入 Material UI 图标
 import DescriptionRoundedIcon from '@mui/icons-material/DescriptionRounded';
 import ForumRoundedIcon from '@mui/icons-material/ForumRounded';
 import QuizRoundedIcon from '@mui/icons-material/QuizRounded';
