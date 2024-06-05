@@ -10,7 +10,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="relative flex justify-between items-center p-6 bg-white ">
+    <nav className="relative flex justify-between items-center p-4 bg-white ">
       <div className="flex items-center">
         <Link href="/" legacyBehavior>
           <a>

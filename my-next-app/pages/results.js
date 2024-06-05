@@ -74,7 +74,7 @@ export default function Results() {
   };
 
   return (
-    <div className="min-h-screen bg-white py-0 lg:px-48 xl:px-96">
+    <div className="min-h-screen bg-white py-0 px-8 sm:px-8 md:px-8 lg:px-8 xl:px-12">
       <VideoInput initialUrl={videoUrl} />
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-1">
         <div className="col-span-2">
@@ -90,7 +90,7 @@ export default function Results() {
             <ChapterList chapters={chapters} />
           </div>
         </div>
-        <div className="min-w-[600px] md:pl-8 ">
+        <div className="min-w-[450px] md:pl-4 ">
           <div className="flex mb-4 p-1 bg-gray-100 rounded-full">
             <button
               onClick={() => toggleView('summary')}

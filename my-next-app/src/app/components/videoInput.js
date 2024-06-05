@@ -25,7 +25,7 @@ export default function VideoInput({ initialUrl, fullWidth }) {
 
   return (
     <div
-      className={`flex items-center space-x-4 ${fullWidth ? 'w-full' : 'w-[500px]'} mb-8`}
+      className={`flex items-center space-x-4 ${fullWidth ? 'w-full' : 'w-[500px]'} mb-4`}
     >
       <button className="w-10 h-10 flex items-center justify-center bg-teal-500 rounded-full">
         <svg
