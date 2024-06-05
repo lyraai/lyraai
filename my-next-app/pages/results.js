@@ -91,30 +91,30 @@ export default function Results() {
           </div>
         </div>
         <div className="min-w-[450px] md:pl-4 ">
-          <div className="flex mb-4 p-1 bg-gray-100 rounded-full">
+          <div className="mb-4 p-1 bg-gray-100 rounded-full">
             <button
               onClick={() => toggleView('summary')}
-              className={`px-1 py-2 grow jusitfy-between items-center rounded-full ${view === 'summary' ? 'bg-teal-500 text-white' : 'bg-transparent text-gray-400'}`}
+              className={`px-1 py-2 rounded-full ${view === 'summary' ? 'bg-teal-500 text-white' : 'bg-transparent text-gray-400'}`}
             >
-              <DescriptionRoundedIcon className="mr-2" /> Summary
+              <DescriptionRoundedIcon className="mr-1" /> Summary
             </button>
             <button
               onClick={() => toggleView('transcript')}
-              className={`px-1 py-2 grow jusitfy-between items-center rounded-full ${view === 'transcript' ? 'bg-teal-500 text-white' : 'bg-transparent text-gray-400'}`}
+              className={`px-1 py-2 rounded-full ${view === 'transcript' ? 'bg-teal-500 text-white' : 'bg-transparent text-gray-400'}`}
             >
-              <ForumRoundedIcon className="mr-2" /> Transcript
+              <ForumRoundedIcon className="mr-1" /> Transcript
             </button>
             <button
               onClick={() => toggleView('quiz')}
-              className={`px-1 py-2 grow jusitfy-between items-center rounded-full ${view === 'quiz' ? 'bg-teal-500 text-white' : 'bg-transparent text-gray-400'}`}
+              className={`px-1 py-2 rounded-full ${view === 'quiz' ? 'bg-teal-500 text-white' : 'bg-transparent text-gray-400'}`}
             >
-              <QuizRoundedIcon className="mr-2" /> Quiz
+              <QuizRoundedIcon className="mr-1" /> Quiz
             </button>
             <button
               onClick={() => toggleView('discussion')}
-              className={`px-1 py-2 grow jusitfy-between items-center rounded-full ${view === 'discussion' ? 'bg-teal-500 text-white' : 'bg-transparent text-gray-400'}`}
+              className={`px-1 py-2 rounded-full ${view === 'discussion' ? 'bg-teal-500 text-white' : 'bg-transparent text-gray-400'}`}
             >
-              <SummarizeRoundedIcon className="mr-2" /> Discussion
+              <SummarizeRoundedIcon className="mr-1" /> Discussion
             </button>
           </div>
           <div className="mt-4">
