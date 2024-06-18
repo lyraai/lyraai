@@ -2,6 +2,9 @@ git add .
 git commit -m "Updated"
 git push origin main
 
+git remote -v
+git pull orgin mainnpm react-youtube
+
 帮我解决前端问题，我在做一个【youtube summary】的工具，我用next.js和tailwind，目前在还原figma里的设计，你能参考导出的figma设计的图片，还原里的布局，交互逻辑，功能板块的划分，组件
 
 你帮我你能不能把这里的功能改成,给我相对应新的代码：
@@ -13,31 +16,27 @@ git push origin main
 
 现在的代码：
 
-// src/app/components/GoButton.js
-import React from 'react';
 
-const GoButton = ({ onClick }) => {
-  return (
-    <div
-      onClick={onClick}
-      className="relative w-10 h-10 cursor-pointer rounded-full border-2 border-teal-500 bg-white flex items-center justify-center transition-colors duration-300 hover:bg-teal-500 group"
-    >
-      <svg
-        className="w-8 h-8 text-teal-500 transition-colors duration-300 group-hover:text-white"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M5 12h14M12 5l7 7-7 7"
-        ></path>
-      </svg>
-    </div>
-  );
-};
 
-export default GoButton;
+帮我解决前端问题，我在做一个【youtube summary】的工具，我用next.js和tailwind，目前在还原figma里的设计，你能参考导出的figma设计的图片，还原里的布局，交互逻辑，功能板块的划分，组件
+
+你帮我把这个figma的做成components,并告诉我在哪里放这些代码吗
+
+figma的插件结果：
+<div class="w-[350px] h-[425px] p-10 bg-teal-500 rounded-[30px] flex-col justify-start items-start gap-[49px] inline-flex">
+    <div class="self-stretch text-white text-[40px] font-semibold font-['Inter'] leading-[46px]">"10-Why"<br/>Exploration</div>
+    <div class="self-stretch grow shrink basis-0 text-white text-base font-medium font-['Inter'] leading-tight">Start a thought-provoking journey with innovative "10-Why" feature. Ask questions, uncover underlying reasons, and cultivate a deeper understanding of complex concepts through iterative inquiry.</div>
+</div>
+// "10-Why"<br/>Exploration
+text-white
+text-[40px]
+font-semibold
+font-['Inter']
+leading-[46px]
+---
+// Start a thought-provoking journey with innovative "10-Why" feature. Ask questions, uncover underlying reasons, and cultivate a deeper understanding of complex concepts through iterative inquiry.
+text-white
+text-base
+font-medium
+font-['Inter']
+leading-tight

@@ -53,7 +53,8 @@ export default function VideoPlayer({
   date,
 }) {
   const getYouTubeVideoId = (url) => {
-    const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})/i;
+    const regex =
+      /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})/i;
     const match = url.match(regex);
     return match ? match[1] : null;
   };
@@ -76,7 +77,12 @@ export default function VideoPlayer({
     <div className="max-w-6xl">
       {videoId ? (
         <div className="relative overflow-hidden pb-[56.25%] h-0">
-          <YouTube videoId={videoId} opts={opts} onReady={onReady} className="absolute top-0 left-0 w-full h-full"/>
+          <YouTube
+            videoId={videoId}
+            opts={opts}
+            onReady={onReady}
+            className="absolute top-0 left-0 w-full h-full"
+          />
         </div>
       ) : (
         <p>Invalid YouTube URL</p>
