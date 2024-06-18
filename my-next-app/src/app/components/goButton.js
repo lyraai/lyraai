@@ -1,5 +1,4 @@
-// src/app/components/goButton.js
-import React from 'react';
+// import React from 'react';
 
 const GoButton = ({ onClick, isDisabled }) => {
   return (
@@ -12,9 +11,7 @@ const GoButton = ({ onClick, isDisabled }) => {
       } flex items-center justify-center transition-colors duration-300 group`}
     >
       <svg
-        className={`w-7 h-7 ${
-          isDisabled ? 'text-gray-300' : 'text-teal-500 group-hover:text-white'
-        } transition-colors duration-300`}
+        className={`w-7 h-7 ${isDisabled ? 'text-gray-300' : 'text-teal-500 group-hover:text-white'} transition-colors duration-300`}
         fill="none"
         stroke="currentColor"
         strokeWidth="1.5"
@@ -25,7 +22,7 @@ const GoButton = ({ onClick, isDisabled }) => {
           strokeLinecap="round"
           strokeLinejoin="round"
           d="M5 12h14M12 5l7 7-7 7"
-        ></path>
+        />
       </svg>
     </div>
   );
