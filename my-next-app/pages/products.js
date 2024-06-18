@@ -1,3 +1,4 @@
+// pages/products.js
 import Head from 'next/head';
 import FeaturesCard from '../src/app/components/homepage/featuresCard';
 export default function Products() {

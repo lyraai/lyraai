@@ -1,3 +1,4 @@
+// pages/results.js
 import { useRouter } from 'next/router';
 import VideoInput from '../src/app/components/videoInput';
 import VideoPlayer from '../src/app/components/videoPlayer';
@@ -90,37 +91,37 @@ export default function Results() {
             <ChapterList chapters={chapters} />
           </div>
         </div>
-        <div className="min-w-[450px] md:pl-4 ">
-          <div className="mb-4 p-1 bg-gray-100 rounded-full">
+        <div className="max-w-[508px] md:pl-4 py-2 px-2 bg-gray-50 rounded-3xl ">
+          <div className="mb-4 p-1 flex space-x-2rounded-full">
             <button
               onClick={() => toggleView('summary')}
-              className={`px-1 py-2 rounded-full ${view === 'summary' ? 'bg-teal-500 text-white' : 'bg-transparent text-gray-400'}`}
+              className={`w-25% p-2 grow items-center justify-center rounded-full ${view === 'summary' ? 'bg-teal-500 text-white' : 'bg-transparent text-gray-400'}`}
             >
-              <DescriptionRoundedIcon className="mr-1" /> Summary
+              <DescriptionRoundedIcon className="" /> Summary
             </button>
             <button
               onClick={() => toggleView('transcript')}
-              className={`px-1 py-2 rounded-full ${view === 'transcript' ? 'bg-teal-500 text-white' : 'bg-transparent text-gray-400'}`}
+              className={`w-25% px-2 py-2 grow items-center justify-center rounded-full ${view === 'transcript' ? 'bg-teal-500 text-white' : 'bg-transparent text-gray-400'}`}
             >
-              <ForumRoundedIcon className="mr-1" /> Transcript
+              <ForumRoundedIcon className="" /> Transcript
             </button>
             <button
               onClick={() => toggleView('quiz')}
-              className={`px-1 py-2 rounded-full ${view === 'quiz' ? 'bg-teal-500 text-white' : 'bg-transparent text-gray-400'}`}
+              className={`w-25% px-2 py-2 grow items-center justify-center rounded-full ${view === 'quiz' ? 'bg-teal-500 text-white' : 'bg-transparent text-gray-400'}`}
             >
-              <QuizRoundedIcon className="mr-1" /> Quiz
+              <QuizRoundedIcon className="" /> Quiz
             </button>
             <button
               onClick={() => toggleView('discussion')}
-              className={`px-1 py-2 rounded-full ${view === 'discussion' ? 'bg-teal-500 text-white' : 'bg-transparent text-gray-400'}`}
+              className={`w-25% px-2 py-2 grow items-center justify-center rounded-full ${view === 'discussion' ? 'bg-teal-500 text-white' : 'bg-transparent text-gray-400'}`}
             >
-              <SummarizeRoundedIcon className="mr-1" /> Discussion
+              <SummarizeRoundedIcon className="" /> Discussion
             </button>
           </div>
-          <div className="mt-4">
+          <div className="px-2">
             {view === 'transcript' && (
               <div>
-                <h2 className="text-xl font-semibold mb-4">Transcript</h2>
+                <h2 className="text-xl font-bold mb-4">Transcript</h2>
                 <div className="overflow-y-auto max-h-96">
                   {transcript.map((entry, index) => (
                     <div key={index} className="mb-4">
@@ -133,19 +134,19 @@ export default function Results() {
             )}
             {view === 'discussion' && (
               <div>
-                <h2 className="text-xl font-semibold mb-4">Discussion</h2>
+                <h2 className="text-2xl font-bold mb-4">Discussion</h2>
                 {/* 在这里添加 discussion 内容 */}
               </div>
             )}
             {view === 'quiz' && (
               <div>
-                <h2 className="text-xl font-semibold mb-4">Quiz</h2>
+                <h2 className="text-2xl font-bold mb-4">Quiz</h2>
                 {/* 在这里添加 quiz 内容 */}
               </div>
             )}
             {view === 'summary' && (
               <div>
-                <h2 className="text-xl font-semibold mb-4">Summary</h2>
+                <h2 className="text-2xl font-bold mb-4">Summary</h2>
                 {/* 在这里添加 summary 内容 */}
               </div>
             )}

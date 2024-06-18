@@ -1,3 +1,4 @@
+// pages/preview.js
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import VideoInput from '../src/app/components/videoInput';
