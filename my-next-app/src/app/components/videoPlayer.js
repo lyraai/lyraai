@@ -1,4 +1,3 @@
-// src/app/components/videoPlayer.js
 import React from 'react';
 import YouTube from 'react-youtube';
 
@@ -11,6 +10,7 @@ export default function VideoPlayer({
   date,
 }) {
   const getYouTubeVideoId = (url) => {
+    if (!url) return null; // Add this check to handle undefined or null URLs
     const regex =
       /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})/i;
     const match = url.match(regex);
