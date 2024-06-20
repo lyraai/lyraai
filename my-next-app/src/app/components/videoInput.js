@@ -70,7 +70,9 @@ export default function VideoInput({ initialUrl, fullWidth, onUrlChange }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (isValidUrl(videoUrl)) {
-      onUrlChange(videoUrl);
+      if (onUrlChange) {
+        onUrlChange(videoUrl);
+      }
       router.push({
         pathname: '/preview',
         query: {

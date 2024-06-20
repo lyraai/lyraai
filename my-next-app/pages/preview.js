@@ -188,16 +188,43 @@ export default function Preview() {
     return () => clearInterval(timer);
   }, [router, videoUrl]);
 
+  // Function to format seconds into MM:SS format
+  const formatTime = (totalSeconds) => {
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  };
+
+  // Function to handle the test button click
+  const handleTestButtonClick = () => {
+    setLoading(false);
+    router.push({
+      pathname: '/results',
+      query: {
+        videoUrl,
+        data: JSON.stringify({ /* Your mock data here */ }),
+      },
+    });
+  };
+
+  const handleUrlChange = (newUrl) => {
+    // 可以在这里处理新的 URL，或者触发其他逻辑
+    console.log('New video URL:', newUrl);
+  };
+
   return (
     <div className="min-h-screen bg-white p-8">
-      <VideoInput initialUrl={videoUrl} />
+      <VideoInput initialUrl={videoUrl} onUrlChange={handleUrlChange} />
       <h1 className="text-4xl font-bold mb-4">Video Preview</h1>
       {loading ? (
         <div>
           <p>Relax... It may take a while...</p>
           <p>Analyzing......</p>
           <p>Generating....... </p>
-          <p>{`00:${seconds.toString().padStart(2, '0')}`}</p>
+          <p>{formatTime(seconds)}</p>
+          <button onClick={handleTestButtonClick} className="mt-4 px-4 py-2 bg-blue-500 text-white rounded">
+            Skip to Results
+          </button>
         </div>
       ) : (
         <VideoPlayer

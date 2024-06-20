@@ -158,6 +158,7 @@
 // }
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 import VideoInput from '../src/app/components/videoInput';
 import VideoPlayer from '../src/app/components/videoPlayer';
 import ChapterList from '../src/app/components/chapterList';
@@ -174,13 +175,63 @@ export default function Results() {
   const [chapters, setChapters] = useState([]);
   const [transcript, setTranscript] = useState([]);
   const [view, setView] = useState('transcript');
+  const [videoInfo, setVideoInfo] = useState(null);
+  
+  const YOUTUBE_API_KEY = 'AIzaSyDEvBAc2dEd55NMu6mC40JPihhByycvCmQ'; // 替换为你的 YouTube API 密钥
 
   useEffect(() => {
-    const parsedData = JSON.parse(data);
-
-    setChapters(parsedData.segments);
-    setTranscript(parsedData.transcript);
+    if (data) {
+      try {
+        const parsedData = JSON.parse(data);
+        setChapters(parsedData.segments || []);
+        setTranscript(parsedData.transcript || []);
+      } catch (error) {
+        console.error('Failed to parse data:', error);
+      }
+    }
   }, [data]);
+
+  useEffect(() => {
+    if (videoUrl) {
+      const videoId = extractVideoId(videoUrl);
+      fetchVideoInfo(videoId);
+    }
+  }, [videoUrl]);
+
+  const extractVideoId = (url) => {
+    const urlObj = new URL(url);
+    return urlObj.searchParams.get('v');
+  };
+
+  const fetchVideoInfo = async (videoId) => {
+    try {
+      const response = await axios.get(
+        `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${YOUTUBE_API_KEY}&part=snippet,statistics`
+      );
+      const videoData = response.data.items[0];
+      const channelId = videoData.snippet.channelId;
+      const channelResponse = await axios.get(
+        `https://www.googleapis.com/youtube/v3/channels?id=${channelId}&key=${YOUTUBE_API_KEY}&part=snippet`
+      );
+      const channelData = channelResponse.data.items[0];
+
+      setVideoInfo({
+        title: videoData.snippet.title,
+        description: videoData.snippet.description,
+        channel: videoData.snippet.channelTitle,
+        views: videoData.statistics.viewCount,
+        date: videoData.snippet.publishedAt,
+        channelThumbnail: channelData.snippet.thumbnails.default.url, // 添加频道头像 URL
+      });
+    } catch (error) {
+      console.error('Failed to fetch video info:', error);
+    }
+  };
+
+  const handleUrlChange = (newUrl) => {
+    // 可以在这里处理新的 URL，或者触发其他逻辑
+    console.log('New video URL:', newUrl);
+  };
 
   const toggleView = (newView) => {
     setView(newView);
@@ -188,17 +239,20 @@ export default function Results() {
 
   return (
     <div className="min-h-screen bg-white py-0 px-8 sm:px-8 md:px-8 lg:px-8 xl:px-12">
-      <VideoInput initialUrl={videoUrl} />
+      <VideoInput initialUrl={videoUrl} onUrlChange={handleUrlChange} />
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-1">
         <div className="col-span-2">
-          <VideoPlayer
-            videoUrl={videoUrl}
-            title="Blender Tutorial for Complete Beginners - Part 1"
-            description="This is the start of Blender tutorial series for complete beginners..."
-            channel="Blender Guru"
-            views="2.9M"
-            date="6 months ago"
-          />
+          {videoInfo && (
+            <VideoPlayer
+              videoUrl={videoUrl}
+              title={videoInfo.title}
+              description={videoInfo.description}
+              channel={videoInfo.channel}
+              views={videoInfo.views}
+              date={new Date(videoInfo.date).toLocaleDateString()}
+              channelThumbnail={videoInfo.channelThumbnail} // 传递频道头像 URL
+            />
+          )}
           <div className="w-full mt-4">
             <ChapterList chapters={chapters} />
           </div>
@@ -235,12 +289,16 @@ export default function Results() {
               <div>
                 <h2 className="text-xl font-bold mb-4">Transcript</h2>
                 <div className="overflow-y-auto max-h-96">
-                  {transcript.map((entry, index) => (
-                    <div key={index} className="mb-4">
-                      <p className="text-blue-500">{entry.time}</p>
-                      <p>{entry.text}</p>
-                    </div>
-                  ))}
+                  {transcript.length > 0 ? (
+                    transcript.map((entry, index) => (
+                      <div key={index} className="mb-4">
+                        <p className="text-blue-500">{entry.time}</p>
+                        <p>{entry.text}</p>
+                      </div>
+                    ))
+                  ) : (
+                    <p>No transcript available.</p>
+                  )}
                 </div>
               </div>
             )}

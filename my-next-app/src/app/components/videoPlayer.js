@@ -1,3 +1,4 @@
+// src/app/components/videoPlayer.js
 import React from 'react';
 import YouTube from 'react-youtube';
 
@@ -8,6 +9,7 @@ export default function VideoPlayer({
   channel,
   views,
   date,
+  channelThumbnail // 添加这个参数
 }) {
   const getYouTubeVideoId = (url) => {
     if (!url) return null; // Add this check to handle undefined or null URLs
@@ -46,12 +48,11 @@ export default function VideoPlayer({
         <p>Invalid YouTube URL</p>
       )}
       <div className="mt-4">
-        <h1 className="text-2xl font-bold">{title}</h1>
-        <p className="mt-2 text-gray-600">{description}</p>
-        <div className="flex items-center mt-4">
+        <h1 className="text-xl font-bold">{title}</h1>
+        <div className="flex items-center mt-2">
           <img
             className="w-10 h-10 rounded-full"
-            src="/channel-avatar.png" // Dummy channel avatar
+            src={channelThumbnail} // 使用传递的频道头像 URL
             alt={channel}
           />
           <div className="ml-4">
@@ -61,6 +62,7 @@ export default function VideoPlayer({
             </p>
           </div>
         </div>
+        <p className="text-sm mt-4 text-gray-400">{description}</p>
       </div>
     </div>
   );
