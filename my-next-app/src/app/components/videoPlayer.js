@@ -9,7 +9,7 @@ export default function VideoPlayer({
   channel,
   views,
   date,
-  channelThumbnail // 添加这个参数
+  channelThumbnail,
 }) {
   const getYouTubeVideoId = (url) => {
     if (!url) return null; // Add this check to handle undefined or null URLs
@@ -52,7 +52,7 @@ export default function VideoPlayer({
         <div className="flex items-center mt-2">
           <img
             className="w-10 h-10 rounded-full"
-            src={channelThumbnail} // 使用传递的频道头像 URL
+            src={channelThumbnail}
             alt={channel}
           />
           <div className="ml-4">

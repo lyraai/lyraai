@@ -176,7 +176,7 @@ export default function Results() {
   const [transcript, setTranscript] = useState([]);
   const [view, setView] = useState('transcript');
   const [videoInfo, setVideoInfo] = useState(null);
-  
+
   const YOUTUBE_API_KEY = 'AIzaSyDEvBAc2dEd55NMu6mC40JPihhByycvCmQ'; // 替换为你的 YouTube API 密钥
 
   useEffect(() => {
@@ -206,12 +206,12 @@ export default function Results() {
   const fetchVideoInfo = async (videoId) => {
     try {
       const response = await axios.get(
-        `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${YOUTUBE_API_KEY}&part=snippet,statistics`
+        `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${YOUTUBE_API_KEY}&part=snippet,statistics`,
       );
       const videoData = response.data.items[0];
       const channelId = videoData.snippet.channelId;
       const channelResponse = await axios.get(
-        `https://www.googleapis.com/youtube/v3/channels?id=${channelId}&key=${YOUTUBE_API_KEY}&part=snippet`
+        `https://www.googleapis.com/youtube/v3/channels?id=${channelId}&key=${YOUTUBE_API_KEY}&part=snippet`,
       );
       const channelData = channelResponse.data.items[0];
 

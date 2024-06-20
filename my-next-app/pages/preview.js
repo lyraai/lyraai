@@ -202,7 +202,9 @@ export default function Preview() {
       pathname: '/results',
       query: {
         videoUrl,
-        data: JSON.stringify({ /* Your mock data here */ }),
+        data: JSON.stringify({
+          /* Your mock data here */
+        }),
       },
     });
   };
@@ -222,7 +224,10 @@ export default function Preview() {
           <p>Analyzing......</p>
           <p>Generating....... </p>
           <p>{formatTime(seconds)}</p>
-          <button onClick={handleTestButtonClick} className="mt-4 px-4 py-2 bg-blue-500 text-white rounded">
+          <button
+            onClick={handleTestButtonClick}
+            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
+          >
             Skip to Results
           </button>
         </div>
