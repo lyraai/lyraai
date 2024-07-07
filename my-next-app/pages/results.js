@@ -1,6 +1,5 @@
-// pages/results.js
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import VideoInput from '../src/app/components/videoInput';
 import VideoPlayer from '../src/app/components/videoPlayer';
@@ -19,6 +18,31 @@ export default function Results() {
   const [transcript, setTranscript] = useState([]);
   const [view, setView] = useState('transcript');
   const [videoInfo, setVideoInfo] = useState(null);
+  const playerRef = useRef(null);
+
+  // 独立设置假数据来测试 Key Moments
+  const [keyMoments, setKeyMoments] = useState([
+    {
+      time: '00:01',
+      title: 'Introduction',
+      thumbnail: 'https://via.placeholder.com/150',
+    },
+    {
+      time: '00:10',
+      title: 'Chapter 1',
+      thumbnail: 'https://via.placeholder.com/150',
+    },
+    {
+      time: '00:20',
+      title: 'Chapter 2',
+      thumbnail: 'https://via.placeholder.com/150',
+    },
+    {
+      time: '00:30',
+      title: 'Conclusion',
+      thumbnail: 'https://via.placeholder.com/150',
+    },
+  ]);
 
   const YOUTUBE_API_KEY = 'AIzaSyDEvBAc2dEd55NMu6mC40JPihhByycvCmQ'; // 替换为你的 YouTube API 密钥
 
@@ -80,6 +104,16 @@ export default function Results() {
     setView(newView);
   };
 
+  const handleTimestampClick = (timestamp) => {
+    const timeInSeconds = timestamp
+      .split(':')
+      .reduce((acc, time) => 60 * acc + +time, 0);
+    console.log(`跳转到 ${timeInSeconds} 秒`);
+    if (playerRef.current) {
+      playerRef.current.seekTo(timeInSeconds);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white py-0 px-8 sm:px-8 md:px-8 lg:px-8 xl:px-12">
       <VideoInput initialUrl={videoUrl} onUrlChange={handleUrlChange} />
@@ -87,6 +121,7 @@ export default function Results() {
         <div className="col-span-2">
           {videoInfo && (
             <VideoPlayer
+              ref={playerRef}
               videoUrl={videoUrl}
               title={videoInfo.title}
               description={videoInfo.description}
@@ -135,7 +170,12 @@ export default function Results() {
                   {transcript.length > 0 ? (
                     transcript.map((entry, index) => (
                       <div key={index} className="mb-4">
-                        <p className="text-blue-500">{entry.time}</p>
+                        <p
+                          className="text-blue-500 cursor-pointer"
+                          onClick={() => handleTimestampClick(entry.time)}
+                        >
+                          {entry.time}
+                        </p>
                         <p>{entry.text}</p>
                       </div>
                     ))
@@ -164,6 +204,31 @@ export default function Results() {
               </div>
             )}
           </div>
+        </div>
+      </div>
+      {/* 添加独立的 Key Moments 部分 */}
+      <div className="w-full mt-4 px-8">
+        <h2 className="text-xl font-bold mb-4">Key Moments</h2>
+        <div className="flex space-x-4 overflow-x-auto">
+          {keyMoments.length > 0 ? (
+            keyMoments.map((moment, index) => (
+              <div
+                key={index}
+                className="bg-gray-200 rounded-lg p-4 cursor-pointer"
+                onClick={() => handleTimestampClick(moment.time)}
+              >
+                <img
+                  src={moment.thumbnail}
+                  alt={moment.title}
+                  className="w-32 h-18 rounded-lg mb-2"
+                />
+                <p className="text-lg font-semibold">{moment.title}</p>
+                <p className="text-blue-500">{moment.time}</p>
+              </div>
+            ))
+          ) : (
+            <p>No key moments available.</p>
+          )}
         </div>
       </div>
     </div>

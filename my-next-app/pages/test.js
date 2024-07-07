@@ -63,7 +63,10 @@ export default function Test() {
   return (
     <div className="min-h-screen bg-white p-8">
       <div>
-        <label htmlFor="videoUrl" className="block text-sm font-medium text-gray-700">
+        <label
+          htmlFor="videoUrl"
+          className="block text-sm font-medium text-gray-700"
+        >
           YouTube Video URL
         </label>
         <input
@@ -95,14 +98,26 @@ export default function Test() {
       )}
       <h2 className="text-2xl font-bold mt-8">Test Other Routes</h2>
       <button
-        onClick={() => handleTestRoute('/api/downloadAudio', { url: videoUrl, filename: 'test.mp3', audio_type: 'mp3' })}
+        onClick={() =>
+          handleTestRoute('/api/downloadAudio', {
+            url: videoUrl,
+            filename: 'test.mp3',
+            audio_type: 'mp3',
+          })
+        }
         className="mt-4 px-4 py-2 bg-green-500 text-white rounded"
         disabled={loading}
       >
         {loading ? 'Testing...' : 'Test Download Audio'}
       </button>
       <button
-        onClick={() => handleTestRoute('/api/youtubeProcess', { url: videoUrl, audio_dir: '/tmp', audio_type: 'mp3' })}
+        onClick={() =>
+          handleTestRoute('/api/youtubeProcess', {
+            url: videoUrl,
+            audio_dir: '/tmp',
+            audio_type: 'mp3',
+          })
+        }
         className="mt-4 px-4 py-2 bg-green-500 text-white rounded"
         disabled={loading}
       >
@@ -111,7 +126,9 @@ export default function Test() {
       {Object.keys(responses).map((route) => (
         <div key={route} className="mt-4">
           <h3 className="text-xl font-bold">{route}</h3>
-          <pre className="bg-gray-100 p-4 rounded">{JSON.stringify(responses[route], null, 2)}</pre>
+          <pre className="bg-gray-100 p-4 rounded">
+            {JSON.stringify(responses[route], null, 2)}
+          </pre>
         </div>
       ))}
     </div>
