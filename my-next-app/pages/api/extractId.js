@@ -5,13 +5,16 @@ export default async function handler(req, res) {
   }
 
   try {
-    const response = await fetch('https://flask-hello-world-ys6elaj32q-an.a.run.app/extract_youtube_id', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+    const response = await fetch(
+      'https://flask-hello-world-ys6elaj32q-an.a.run.app/extract_youtube_id',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(req.body),
       },
-      body: JSON.stringify(req.body),
-    });
+    );
 
     if (!response.ok) {
       const errorText = await response.text();
