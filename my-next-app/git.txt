@@ -9,12 +9,7 @@ git pull orgin mainnpm react-youtube
 帮我解决前端问题，我在做一个【youtube summary】的工具，我用next.js和tailwind，目前在还原figma里的设计，你能参考导出的figma设计的图片，还原里的布局，交互逻辑，功能板块的划分，组件
 
 你帮我你能不能把这里的功能改成,给我相对应新的代码：
-1.输入框的高度是10和gobutton保持一直，并上下是居中的
-1. 用户在输入框输入文字前，gobutton不可交互（变灰）
-2. 输入文字并检测是个youtube链接后，gobutton变得可点击（按钮背景变浅的主题色）
-3. 用户鼠标hover后，请求服务器，gobutton的按钮背景变成主题色
-4. 输入框左边预留一个新的空间，在这个空间（输入框左边）新增一个上传文件的按钮，颜色是主题色，svg文件是和arrow.png同文件夹里的upload.svg
-
+1.
 现在的代码：
 
 

@@ -264,9 +264,9 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div className="bg-white rounded-lg shadow-lg p-6">
                   <p className="text-gray-600 mb-4">
-                    "We struggled to find the right talent globally, but with
+                    We struggled to find the right talent globally, but with
                     their automated candidate ranking, we quickly identified
-                    top-notch candidates who perfectly fit our requirements."
+                    top-notch candidates who perfectly fit our requirements.
                   </p>
                   <div className="flex items-center">
                     <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-white">
@@ -288,9 +288,9 @@ export default function Home() {
                 </div>
                 <div className="bg-white rounded-lg shadow-lg p-6">
                   <p className="text-gray-600 mb-4">
-                    "As a fast-growing startup, we needed an efficient way to
+                    As a fast-growing startup, we needed an efficient way to
                     find skilled professionals from various regions. This AI
-                    tool exceeded our expectations."
+                    tool exceeded our expectations.
                   </p>
                   <div className="flex items-center">
                     <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-white">
@@ -312,8 +312,8 @@ export default function Home() {
                 </div>
                 <div className="bg-white rounded-lg shadow-lg p-6">
                   <p className="text-gray-600 mb-4">
-                    "The platform's emphasis on diversity and inclusion
-                    impressed me, helping us create a more inclusive workforce."
+                    The platform s emphasis on diversity and inclusion impressed
+                    me, helping us create a more inclusive workforce.
                   </p>
                   <div className="flex items-center">
                     <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-white">
