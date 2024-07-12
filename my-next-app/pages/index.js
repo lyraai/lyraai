@@ -1,9 +1,8 @@
 // pages/index.js
 import Head from 'next/head';
-import Navbar from '../src/app/components/navBar';
-import VideoInput from '../src/app/components/videoInput';
 import AnimatedBackground from '../src/app/components/background';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -39,20 +38,20 @@ export default function Home() {
             </h2>
 
             <div className="mt-8 flex justify-center space-x-4">
+              <Link href="/products" legacyBehavior>
               <a
-                href="#how-it-works"
                 className="px-8 py-3 border border-teal-500 text-teal-500 rounded-lg hover:bg-teal-100"
               >
                 Learn more
               </a>
+              </Link>
+              <Link href="/youtubesummary" legacyBehavior>
               <a
-                href="https://andrea-montini.lemonsqueezy.com/checkout/buy/f4da987f-2be5-4c3c-b2b2-9a5df3121631?discount=0"
-                target="_blank"
-                rel="noopener"
                 className="px-8 py-3 bg-teal-500 text-white rounded-lg hover:bg-teal-700"
               >
-                Request Demo
+                Try Demo
               </a>
+              </Link>
             </div>
           </div>
 
