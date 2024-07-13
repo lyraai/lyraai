@@ -1,4 +1,4 @@
-// import React from 'react';
+// my-next-app\src\app\components\goButton.js
 
 const GoButton = ({ onClick, isDisabled }) => {
   return (
