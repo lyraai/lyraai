@@ -1,11 +1,10 @@
+// my-next-app\pages\results.js
 import { useRouter } from 'next/router';
 import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import VideoInput from '../src/app/components/videoInput';
 import VideoPlayer from '../src/app/components/videoPlayer';
-import ChapterList from '../src/app/components/chapterList';
 
-// Material UI Icons
 import DescriptionRoundedIcon from '@mui/icons-material/DescriptionRounded';
 import ForumRoundedIcon from '@mui/icons-material/ForumRounded';
 import QuizRoundedIcon from '@mui/icons-material/QuizRounded';
@@ -13,57 +12,37 @@ import SummarizeRoundedIcon from '@mui/icons-material/SummarizeRounded';
 
 export default function Results() {
   const router = useRouter();
-  const { videoUrl, data } = router.query;
-  const [chapters, setChapters] = useState([]);
+  const { videoUrl } = router.query;
   const [transcript, setTranscript] = useState([]);
-  const [view, setView] = useState('transcript');
+  const [view, setView] = useState('summary');
   const [videoInfo, setVideoInfo] = useState(null);
   const playerRef = useRef(null);
+  const [loading, setLoading] = useState(true);
+  const [seconds, setSeconds] = useState(0);
+  const [error, setError] = useState('');
+  const [summary, setSummary] = useState('');
+  const [discussion, setDiscussion] = useState([]);
+  const [quiz, setQuiz] = useState([]);
 
-  // 独立设置假数据来测试 Key Moments
-  const [keyMoments, setKeyMoments] = useState([
-    {
-      time: '00:01',
-      title: 'Introduction',
-      thumbnail: 'https://via.placeholder.com/150',
-    },
-    {
-      time: '00:10',
-      title: 'Chapter 1',
-      thumbnail: 'https://via.placeholder.com/150',
-    },
-    {
-      time: '00:20',
-      title: 'Chapter 2',
-      thumbnail: 'https://via.placeholder.com/150',
-    },
-    {
-      time: '00:30',
-      title: 'Conclusion',
-      thumbnail: 'https://via.placeholder.com/150',
-    },
-  ]);
+  const [keyMoments, setKeyMoments] = useState([]);
 
-  const YOUTUBE_API_KEY = 'AIzaSyDEvBAc2dEd55NMu6mC40JPihhByycvCmQ'; // 替换为你的 YouTube API 密钥
-
-  useEffect(() => {
-    if (data) {
-      try {
-        const parsedData = JSON.parse(data);
-        setChapters(parsedData.segments || []);
-        setTranscript(parsedData.transcript || []);
-      } catch (error) {
-        console.error('Failed to parse data:', error);
-      }
-    }
-  }, [data]);
+  const YOUTUBE_API_KEY = 'AIzaSyDEvBAc2dEd55NMu6mC40JPihhByycvCmQ';
 
   useEffect(() => {
     if (videoUrl) {
       const videoId = extractVideoId(videoUrl);
       fetchVideoInfo(videoId);
+      fetchTranscript(videoId);
     }
   }, [videoUrl]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSeconds((prevSeconds) => prevSeconds + 1);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   const extractVideoId = (url) => {
     const urlObj = new URL(url);
@@ -72,13 +51,15 @@ export default function Results() {
 
   const fetchVideoInfo = async (videoId) => {
     try {
+      setLoading(true);
+      setError('');
       const response = await axios.get(
-        `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${YOUTUBE_API_KEY}&part=snippet,statistics`,
+        `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${YOUTUBE_API_KEY}&part=snippet,statistics`
       );
       const videoData = response.data.items[0];
       const channelId = videoData.snippet.channelId;
       const channelResponse = await axios.get(
-        `https://www.googleapis.com/youtube/v3/channels?id=${channelId}&key=${YOUTUBE_API_KEY}&part=snippet`,
+        `https://www.googleapis.com/youtube/v3/channels?id=${channelId}&key=${YOUTUBE_API_KEY}&part=snippet`
       );
       const channelData = channelResponse.data.items[0];
 
@@ -92,11 +73,37 @@ export default function Results() {
       });
     } catch (error) {
       console.error('Failed to fetch video info:', error);
+      setError('Failed to fetch video info');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchTranscript = async (videoId) => {
+    try {
+      setLoading(true);
+      setError('');
+      const response = await axios.post('/api/youtubeProcess', {
+        url: `https://www.youtube.com/watch?v=${videoId}`,
+        audio_dir: '/tmp',
+        audio_type: 'mp3',
+      });
+
+      const result = response.data.results;
+      setTranscript(result.transcript || []);
+      setKeyMoments(result.key_moments || []);
+      setSummary(result.summary || '');
+      setDiscussion(Object.values(result.discussion || []));
+      setQuiz(Object.values(result.quiz || []));
+    } catch (error) {
+      console.error('Failed to fetch transcript:', error);
+      setError('Failed to fetch transcript');
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleUrlChange = (newUrl) => {
-    // 可以在这里处理新的 URL，或者触发其他逻辑
     console.log('New video URL:', newUrl);
   };
 
@@ -112,6 +119,12 @@ export default function Results() {
     if (playerRef.current) {
       playerRef.current.seekTo(timeInSeconds);
     }
+  };
+
+  const formatTime = (totalSeconds) => {
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
   };
 
   return (
@@ -131,9 +144,6 @@ export default function Results() {
               channelThumbnail={videoInfo.channelThumbnail} // 传递频道头像 URL
             />
           )}
-          <div className="w-full mt-4">
-            <ChapterList chapters={chapters} />
-          </div>
         </div>
         <div className="max-w-[508px] md:pl-4 py-2 px-2 bg-gray-50 rounded-3xl">
           <div className="mb-4 p-1 flex space-x-2 rounded-full">
@@ -163,45 +173,79 @@ export default function Results() {
             </button>
           </div>
           <div className="px-2">
-            {view === 'transcript' && (
+            {loading ? (
               <div>
-                <h2 className="text-xl font-bold mb-4">Transcript</h2>
-                <div className="overflow-y-auto max-h-96">
-                  {transcript.length > 0 ? (
-                    transcript.map((entry, index) => (
-                      <div key={index} className="mb-4">
-                        <p
-                          className="text-blue-500 cursor-pointer"
-                          onClick={() => handleTimestampClick(entry.time)}
-                        >
-                          {entry.time}
-                        </p>
-                        <p>{entry.text}</p>
-                      </div>
-                    ))
-                  ) : (
-                    <p>No transcript available.</p>
-                  )}
-                </div>
+                <p>Relax... It may take a while...</p>
+                <p>Analyzing......</p>
+                <p>Generating....... </p>
+                <p>{formatTime(seconds)}</p>
               </div>
-            )}
-            {view === 'discussion' && (
-              <div>
-                <h2 className="text-2xl font-bold mb-4">Discussion</h2>
-                {/* Add discussion content here */}
-              </div>
-            )}
-            {view === 'quiz' && (
-              <div>
-                <h2 className="text-2xl font-bold mb-4">Quiz</h2>
-                {/* Add quiz content here */}
-              </div>
-            )}
-            {view === 'summary' && (
-              <div>
-                <h2 className="text-2xl font-bold mb-4">Summary</h2>
-                {/* Add summary content here */}
-              </div>
+            ) : (
+              <>
+                {view === 'transcript' && (
+                  <div>
+                    <h2 className="text-xl font-bold mb-4">Transcript</h2>
+                    <div className="overflow-y-auto max-h-96">
+                      {Array.isArray(transcript) && transcript.length > 0 ? (
+                        transcript.map((entry, index) => (
+                          <div key={index} className="mb-4">
+                            <p
+                              className="text-blue-500 cursor-pointer"
+                              onClick={() => handleTimestampClick(entry.time)}
+                            >
+                              {entry.time}
+                            </p>
+                            <p>{entry.text}</p>
+                          </div>
+                        ))
+                      ) : (
+                        <p>No transcript available.</p>
+                      )}
+                    </div>
+                  </div>
+                )}
+                {view === 'discussion' && (
+                  <div>
+                    <h2 className="text-2xl font-bold mb-4">Discussion</h2>
+                    {discussion.length > 0 ? (
+                      discussion.map((item, index) => (
+                        <div key={index} className="mb-4">
+                          <p className="font-semibold">Q: {item.question}</p>
+                          <p className="text-gray-700">A: {item.answer}</p>
+                        </div>
+                      ))
+                    ) : (
+                      <p>No discussion available.</p>
+                    )}
+                  </div>
+                )}
+                {view === 'quiz' && (
+                  <div>
+                    <h2 className="text-2xl font-bold mb-4">Quiz</h2>
+                    {quiz.length > 0 ? (
+                      quiz.map((item, index) => (
+                        <div key={index} className="mb-4">
+                          <p className="font-semibold">Q: {item.question}</p>
+                          <ul className="list-disc pl-5">
+                            {item.options.map((option, optionIndex) => (
+                              <li key={optionIndex}>{option}</li>
+                            ))}
+                          </ul>
+                          <p className="text-gray-700">Answer: {item.answer}</p>
+                        </div>
+                      ))
+                    ) : (
+                      <p>No quiz available.</p>
+                    )}
+                  </div>
+                )}
+                {view === 'summary' && (
+                  <div>
+                    <h2 className="text-2xl font-bold mb-4">Summary</h2>
+                    <p>{summary}</p>
+                  </div>
+                )}
+              </>
             )}
           </div>
         </div>

@@ -1,4 +1,4 @@
-// pages/preview.js
+// my-next-app\pages\preview.js
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import VideoInput from '../src/app/components/videoInput';
@@ -85,19 +85,12 @@ export default function Preview() {
   return (
     <div className="min-h-screen bg-white p-8">
       <VideoInput initialUrl={videoUrl} onUrlChange={handleUrlChange} />
-      <h1 className="text-4xl font-bold mb-4">Video Preview</h1>
       {loading ? (
         <div>
           <p>Relax... It may take a while...</p>
           <p>Analyzing......</p>
           <p>Generating....... </p>
           <p>{formatTime(seconds)}</p>
-          <button
-            onClick={handleTestButtonClick}
-            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
-          >
-            Skip to Results
-          </button>
         </div>
       ) : (
         <VideoPlayer

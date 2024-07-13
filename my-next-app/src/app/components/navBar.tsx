@@ -26,27 +26,27 @@ export default function Navbar() {
       </div>
       <div className="hidden md:flex space-x-6 text-base font-regular items-center">
         <Link href="/" legacyBehavior>
-          <a className="text-gray-500 hover:text-black transition-colors duration-200">
+          <a className="text-sm text-gray-500 hover:text-black transition-colors duration-200">
             Home
           </a>
         </Link>
         <Link href="/products" legacyBehavior>
-          <a className="text-gray-500 hover:text-black transition-colors duration-200">
+          <a className="text-sm text-gray-500 hover:text-black transition-colors duration-200">
             Products
           </a>
         </Link>
         <Link href="/pricing" legacyBehavior>
-          <a className="text-gray-500 hover:text-black transition-colors duration-200">
+          <a className="text-sm text-gray-500 hover:text-black transition-colors duration-200">
             Pricing
           </a>
         </Link>
         <Link href="/about" legacyBehavior>
-          <a className="text-gray-500 hover:text-black transition-colors duration-200">
-            About us
+          <a className="text-sm text-gray-500 hover:text-black transition-colors duration-200">
+            Our team
           </a>
         </Link>
         <Link href="/signup" legacyBehavior>
-          <a className="px-3 py-1.5 border-2 border-teal-500 text-teal-500 rounded-full hover:bg-teal-500 hover:text-white transition">
+          <a className="text-sm px-3 py-1.5 bg-teal-500 text-white rounded-full">
             Sign up
           </a>
         </Link>

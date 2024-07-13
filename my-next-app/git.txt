@@ -3,10 +3,22 @@ git commit -m "Updated"
 git push origin main
 
 git remote -v
-git pull orgin mainnpm react-youtube
+git pull orgin main
+npm react-youtube
 
 
-帮我解决前端问题，我在做一个【youtube summary】的工具，我用next.js和tailwind，目前在还原figma里的设计，你能参考导出的figma设计的图片，还原里的布局，交互逻辑，功能板块的划分，组件
+  const YOUTUBE_API_KEY = 'AIzaSyDEvBAc2dEd55NMu6mC40JPihhByycvCmQ';
+
+帮我解决前端问题，我在做一个【youtube summary】的工具，我用next.js和tailwind部署在vercel上，通过flask将后台的python做的处理传输到前端的ui上显示出来。帮我解决一下报错，如果你需要其他页面的代码做修改，请告诉我，我会另外提供给你。
+
+帮我解决前端问题，我在做一个【youtube summary】的工具，我用next.js和tailwind部署在vercel上，通过flask将后台的python做的处理传输到前端的ui上显示出来。帮我解决一下报错，如果你需要其他页面的代码做修改，请告诉我，我会另外提供给你。
+四个更新
+1.其实刚刚那个版本可以的，但是很奇怪，计时结束显示无结果，等了段时间后才显示出来结果，你优化一下这的逻辑，保证用户不会感到疑惑
+2.跳转过后，能否直接显示YouTube播放器和下面的介绍内容，让用户在等待的过程中可以直接先播放
+3.右边的功能模块确保有原本的固定的长宽度，以及loading的动画没有正常显示，你可以放在正中间
+4. 后端传输过来的transcript你可以加进去吗 功能板块里有个transcript的功能
+
+目前在还原figma里的设计，你能参考导出的figma设计的图片，还原里的布局，交互逻辑，功能板块的划分，组件
 
 你帮我你能不能把这里的功能改成,给我相对应新的代码：
 1.
@@ -36,3 +48,458 @@ text-base
 font-medium
 font-['Inter']
 leading-tight
+
+我是前端，修改不了后端代码。作为我的代码住手，我在做一个【youtube summary】的工具，我用next.js和tailwind部署在vercel上，通过flask将后台的python做的处理传输到前端的ui上显示出来。逻辑是这样的：输入YouTube链接，发送到后端，后端将处理过后的数据传输过来前端的ui显示：
+
+帮我解决一下的更新：
+
+1.计时结束显示无结果，等了段时间后才显示出来结果，你优化一下这的逻辑，保证用户不会感到疑惑
+2.跳转过后，能否直接显示YouTube播放器和下面的介绍内容，让用户在等待的过程中可以直接先播放，你看是否需要修改youtubeplayer.js
+3.右边的功能模块在等待结果，设计并加一个loading的动画（通常前段是自己做还是导入库还是做一个单独组件），你可以放在功能模块的正中间
+4. 后端传输过来的transcript你可以加进去吗 功能板块里有个transcript的功能：
+后端数据案例：/api/youtubeProcess
+{
+  "results": {
+    "discussion": {
+      "1": {
+        "answer": "Unreal Engine is used for building world-class interactive 3D experiences, including games, visual effects, VR simulations, and more.",
+        "question": "What is the main purpose of Unreal Engine?"
+      },
+      "2": {
+        "answer": "Unreal Engine provides a standard architecture for implementing complex requirements like 3D rendering, physics, animation, ray tracing, and more.",
+        "question": "How does Unreal Engine handle complex requirements like 3D rendering and physics?"
+      },
+      "3": {
+        "answer": "Unreal Engine uses a visual scripting language called Blueprint to program game logic without writing C++ code.",
+        "question": "What is the visual scripting language in Unreal Engine called?"
+      },
+      "4": {
+        "answer": "In Unreal Engine, developers can use the visual editor to create levels and fill them with 3D objects called actors.",
+        "question": "How can a developer create levels and fill them with 3D objects in Unreal Engine?"
+      },
+      "5": {
+        "answer": "In Unreal Engine, developers can package their creations for desktop, mobile, game consoles, and VR platforms.",
+        "question": "How can a developer package their creation in Unreal Engine for different platforms?"
+      }
+    },
+    "key_concepts": {
+      "1": {
+        "definition": "A suite of developer tools for building world-class interactive 3D experiences developed by Tim Sweeney at Epic Games. Written in C++, it was originally designed for first-person 3D shooter games but is now used in a variety of applications.",
+        "term": "Unreal Engine"
+      },
+      "2": {
+        "definition": "3D experiences that allow user input and engagement, often used in games, VR simulations, visual effects, and other interactive media.",
+        "term": "Interactive 3D experiences"
+      },
+      "3": {
+        "definition": "A visual scripting language in Unreal Engine used for programming game logic without writing C++ code, allowing developers to create interactive elements by connecting events, nodes, functions, and variables.",
+        "term": "Blueprint"
+      },
+      "4": {
+        "definition": "The process of creating game levels by placing 3D objects called actors, applying materials, adding lighting, and sculpting landscapes. In Unreal Engine, this is done using the visual editor to make environments visually appealing and engaging for players.",
+        "term": "Level design"
+      },
+      "5": {
+        "definition": "The process of creating video games using various tools and technologies. Unreal Engine provides a comprehensive set of features for game development, including rendering, physics, animation, ray tracing, and more, making it a popular choice for developers creating AAA games, independent games, and virtual simulations.",
+        "term": "Game development"
+      }
+    },
+    "language": "English",
+    "quiz": {
+      "1": {
+        "answer": "Building interactive 3D experiences",
+        "options": [
+          "Building interactive 3D experiences",
+          "Creating 2D mobile games",
+          "Designing websites",
+          "Developing social media platforms"
+        ],
+        "question": "What is Unreal Engine primarily used for?"
+      },
+      "2": {
+        "answer": "C++",
+        "options": [
+          "Python",
+          "Java",
+          "C++",
+          "JavaScript"
+        ],
+        "question": "What language is Unreal Engine written in?"
+      },
+      "3": {
+        "answer": "Blueprint",
+        "options": [
+          "JavaScript",
+          "VBScript",
+          "Blueprint",
+          "HTML"
+        ],
+        "question": "What is the name of the visual scripting language used in Unreal Engine?"
+      },
+      "4": {
+        "answer": "In wireframe mode",
+        "options": [
+          "In wireframe mode",
+          "In text mode",
+          "In debug mode",
+          "In animation mode"
+        ],
+        "question": "How can you view the geometry of an object in Unreal Engine?"
+      },
+      "5": {
+        "answer": "Go down to the content drawer",
+        "options": [
+          "Create a game mode blueprint",
+          "Add a character actor",
+          "Download the Epic Games launcher",
+          "Go down to the content drawer"
+        ],
+        "question": "What is the first step mentioned to start building a project in Unreal Engine?"
+      }
+    },
+    "segments": [
+      {
+        "language": "English",
+        "text": " Unreal Engine, a suite of developer tools for building world-class interactive 3D experiences.",
+        "timestamp": "00:00:00",
+        "transcript": "Unreal Engine, a suite of developer tools for building world-class interactive 3D experiences. It was created by Tim Sweeney at Epic Games in 1995, is written in C++, and was originally designed for first-person 3D shooter games. Today it's used to build AAA games like Fortnite, or visual effects in TV shows like The Mandalorian, VR simulation in medicine and aviation, in addition to independent games by developers like you. At its core, the engine provides a standard architecture for implementing highly complex requirements, like 3D rendering, physics, animation, ray tracing, and a lot more. All this magic is accessible via its visual editor, where you can easily create levels and fill them with 3D objects called actors. Then to make a game interactive, it provides a visual scripting language called Blueprint, where you can program game logic without ever writing your own C++ code. When your creation is complete, Unreal can package it for desktop, mobile, and virtually any game console or VR platform. To build the next AAA billion dollar game franchise right now, download the Epic Games launcher, install Unreal Engine, and create a new project. First, go down to the content drawer, which is where all the game assets are saved. From here we can right-click to create a new level. Then from the top nav bar, add our first actor to it, like a shape that the player can collide with. It's currently invisible, but we can change the view mode to wireframe to view its geometry. And notice how it's been added to the outliner here, which is a hierarchy of your game objects. If we select the cube, we can now modify its properties. Its physical shape is defined by a mesh, which we can modify in isolation by clicking it. To make it look cool though, we need to apply a different material to the mesh. We could create a new material from scratch, or use one from the built-in starter content. Looks cool, but now we need some lighting. We could add a light actor, or better yet, use the environment light mixer to quickly add lights and atmosphere to the level. Now we need to create some land. Let's go into landscape mode, choose a material, like moss or gravel, then create it. We now have a flat surface to walk on, and we can sculpt it into mountains and valleys with the brush tool. Now go back to selection mode, select the cube, and tick the box to simulate physics. When you click play, you should now see the cube roll down the hill. But a game needs a controllable player, so let's add a character actor to the scene. And now it's time to do some actual programming with blueprints. Create a game mode blueprint to define the rules and scoring system of your game, then another blueprint for the character, then give the character a brain with a controller blueprint. If we open that blueprint, we can start coding game logic here in the event graph. Begin play runs when the level first loads, while tick runs on every frame. Now there are tons of built-in functions that you can run in response to these events, like print string. We can execute this function on every frame by connecting it to the tick event. And now when we run the game, it won't stop printing hello world. With blueprints, you connect events, nodes, functions, and variables together to create interactive game elements. This has been Unreal Engine in 100 seconds. Hit the like button and let me know if you want to see a full Unreal tutorial in the comments. Thanks for watching, and I will see you in the next one."
+      },
+      {
+        "language": "English",
+        "text": " It was created by Tim Sweeney at Epic Games in 1995, is written in C++,",
+        "timestamp": "00:00:06",
+        "transcript": "Unreal Engine, a suite of developer tools for building world-class interactive 3D experiences. It was created by Tim Sweeney at Epic Games in 1995, is written in C++, and was originally designed for first-person 3D shooter games. Today it's used to build AAA games like Fortnite, or visual effects in TV shows like The Mandalorian, VR simulation in medicine and aviation, in addition to independent games by developers like you. At its core, the engine provides a standard architecture for implementing highly complex requirements, like 3D rendering, physics, animation, ray tracing, and a lot more. All this magic is accessible via its visual editor, where you can easily create levels and fill them with 3D objects called actors. Then to make a game interactive, it provides a visual scripting language called Blueprint, where you can program game logic without ever writing your own C++ code. When your creation is complete, Unreal can package it for desktop, mobile, and virtually any game console or VR platform. To build the next AAA billion dollar game franchise right now, download the Epic Games launcher, install Unreal Engine, and create a new project. First, go down to the content drawer, which is where all the game assets are saved. From here we can right-click to create a new level. Then from the top nav bar, add our first actor to it, like a shape that the player can collide with. It's currently invisible, but we can change the view mode to wireframe to view its geometry. And notice how it's been added to the outliner here, which is a hierarchy of your game objects. If we select the cube, we can now modify its properties. Its physical shape is defined by a mesh, which we can modify in isolation by clicking it. To make it look cool though, we need to apply a different material to the mesh. We could create a new material from scratch, or use one from the built-in starter content. Looks cool, but now we need some lighting. We could add a light actor, or better yet, use the environment light mixer to quickly add lights and atmosphere to the level. Now we need to create some land. Let's go into landscape mode, choose a material, like moss or gravel, then create it. We now have a flat surface to walk on, and we can sculpt it into mountains and valleys with the brush tool. Now go back to selection mode, select the cube, and tick the box to simulate physics. When you click play, you should now see the cube roll down the hill. But a game needs a controllable player, so let's add a character actor to the scene. And now it's time to do some actual programming with blueprints. Create a game mode blueprint to define the rules and scoring system of your game, then another blueprint for the character, then give the character a brain with a controller blueprint. If we open that blueprint, we can start coding game logic here in the event graph. Begin play runs when the level first loads, while tick runs on every frame. Now there are tons of built-in functions that you can run in response to these events, like print string. We can execute this function on every frame by connecting it to the tick event. And now when we run the game, it won't stop printing hello world. With blueprints, you connect events, nodes, functions, and variables together to create interactive game elements. This has been Unreal Engine in 100 seconds. Hit the like button and let me know if you want to see a full Unreal tutorial in the comments. Thanks for watching, and I will see you in the next one."
+      },
+      {
+        "language": "English",
+        "text": " and was originally designed for first-person 3D shooter games.",
+        "timestamp": "00:00:11",
+        "transcript": "Unreal Engine, a suite of developer tools for building world-class interactive 3D experiences. It was created by Tim Sweeney at Epic Games in 1995, is written in C++, and was originally designed for first-person 3D shooter games. Today it's used to build AAA games like Fortnite, or visual effects in TV shows like The Mandalorian, VR simulation in medicine and aviation, in addition to independent games by developers like you. At its core, the engine provides a standard architecture for implementing highly complex requirements, like 3D rendering, physics, animation, ray tracing, and a lot more. All this magic is accessible via its visual editor, where you can easily create levels and fill them with 3D objects called actors. Then to make a game interactive, it provides a visual scripting language called Blueprint, where you can program game logic without ever writing your own C++ code. When your creation is complete, Unreal can package it for desktop, mobile, and virtually any game console or VR platform. To build the next AAA billion dollar game franchise right now, download the Epic Games launcher, install Unreal Engine, and create a new project. First, go down to the content drawer, which is where all the game assets are saved. From here we can right-click to create a new level. Then from the top nav bar, add our first actor to it, like a shape that the player can collide with. It's currently invisible, but we can change the view mode to wireframe to view its geometry. And notice how it's been added to the outliner here, which is a hierarchy of your game objects. If we select the cube, we can now modify its properties. Its physical shape is defined by a mesh, which we can modify in isolation by clicking it. To make it look cool though, we need to apply a different material to the mesh. We could create a new material from scratch, or use one from the built-in starter content. Looks cool, but now we need some lighting. We could add a light actor, or better yet, use the environment light mixer to quickly add lights and atmosphere to the level. Now we need to create some land. Let's go into landscape mode, choose a material, like moss or gravel, then create it. We now have a flat surface to walk on, and we can sculpt it into mountains and valleys with the brush tool. Now go back to selection mode, select the cube, and tick the box to simulate physics. When you click play, you should now see the cube roll down the hill. But a game needs a controllable player, so let's add a character actor to the scene. And now it's time to do some actual programming with blueprints. Create a game mode blueprint to define the rules and scoring system of your game, then another blueprint for the character, then give the character a brain with a controller blueprint. If we open that blueprint, we can start coding game logic here in the event graph. Begin play runs when the level first loads, while tick runs on every frame. Now there are tons of built-in functions that you can run in response to these events, like print string. We can execute this function on every frame by connecting it to the tick event. And now when we run the game, it won't stop printing hello world. With blueprints, you connect events, nodes, functions, and variables together to create interactive game elements. This has been Unreal Engine in 100 seconds. Hit the like button and let me know if you want to see a full Unreal tutorial in the comments. Thanks for watching, and I will see you in the next one."
+      },
+      {
+        "language": "English",
+        "text": " Today it's used to build AAA games like Fortnite, or visual effects in TV shows like The Mandalorian,",
+        "timestamp": "00:00:14",
+        "transcript": "Unreal Engine, a suite of developer tools for building world-class interactive 3D experiences. It was created by Tim Sweeney at Epic Games in 1995, is written in C++, and was originally designed for first-person 3D shooter games. Today it's used to build AAA games like Fortnite, or visual effects in TV shows like The Mandalorian, VR simulation in medicine and aviation, in addition to independent games by developers like you. At its core, the engine provides a standard architecture for implementing highly complex requirements, like 3D rendering, physics, animation, ray tracing, and a lot more. All this magic is accessible via its visual editor, where you can easily create levels and fill them with 3D objects called actors. Then to make a game interactive, it provides a visual scripting language called Blueprint, where you can program game logic without ever writing your own C++ code. When your creation is complete, Unreal can package it for desktop, mobile, and virtually any game console or VR platform. To build the next AAA billion dollar game franchise right now, download the Epic Games launcher, install Unreal Engine, and create a new project. First, go down to the content drawer, which is where all the game assets are saved. From here we can right-click to create a new level. Then from the top nav bar, add our first actor to it, like a shape that the player can collide with. It's currently invisible, but we can change the view mode to wireframe to view its geometry. And notice how it's been added to the outliner here, which is a hierarchy of your game objects. If we select the cube, we can now modify its properties. Its physical shape is defined by a mesh, which we can modify in isolation by clicking it. To make it look cool though, we need to apply a different material to the mesh. We could create a new material from scratch, or use one from the built-in starter content. Looks cool, but now we need some lighting. We could add a light actor, or better yet, use the environment light mixer to quickly add lights and atmosphere to the level. Now we need to create some land. Let's go into landscape mode, choose a material, like moss or gravel, then create it. We now have a flat surface to walk on, and we can sculpt it into mountains and valleys with the brush tool. Now go back to selection mode, select the cube, and tick the box to simulate physics. When you click play, you should now see the cube roll down the hill. But a game needs a controllable player, so let's add a character actor to the scene. And now it's time to do some actual programming with blueprints. Create a game mode blueprint to define the rules and scoring system of your game, then another blueprint for the character, then give the character a brain with a controller blueprint. If we open that blueprint, we can start coding game logic here in the event graph. Begin play runs when the level first loads, while tick runs on every frame. Now there are tons of built-in functions that you can run in response to these events, like print string. We can execute this function on every frame by connecting it to the tick event. And now when we run the game, it won't stop printing hello world. With blueprints, you connect events, nodes, functions, and variables together to create interactive game elements. This has been Unreal Engine in 100 seconds. Hit the like button and let me know if you want to see a full Unreal tutorial in the comments. Thanks for watching, and I will see you in the next one."
+      },
+      {
+        "language": "English",
+        "text": " VR simulation in medicine and aviation, in addition to independent games by developers like you.",
+        "timestamp": "00:00:19",
+        "transcript": "Unreal Engine, a suite of developer tools for building world-class interactive 3D experiences. It was created by Tim Sweeney at Epic Games in 1995, is written in C++, and was originally designed for first-person 3D shooter games. Today it's used to build AAA games like Fortnite, or visual effects in TV shows like The Mandalorian, VR simulation in medicine and aviation, in addition to independent games by developers like you. At its core, the engine provides a standard architecture for implementing highly complex requirements, like 3D rendering, physics, animation, ray tracing, and a lot more. All this magic is accessible via its visual editor, where you can easily create levels and fill them with 3D objects called actors. Then to make a game interactive, it provides a visual scripting language called Blueprint, where you can program game logic without ever writing your own C++ code. When your creation is complete, Unreal can package it for desktop, mobile, and virtually any game console or VR platform. To build the next AAA billion dollar game franchise right now, download the Epic Games launcher, install Unreal Engine, and create a new project. First, go down to the content drawer, which is where all the game assets are saved. From here we can right-click to create a new level. Then from the top nav bar, add our first actor to it, like a shape that the player can collide with. It's currently invisible, but we can change the view mode to wireframe to view its geometry. And notice how it's been added to the outliner here, which is a hierarchy of your game objects. If we select the cube, we can now modify its properties. Its physical shape is defined by a mesh, which we can modify in isolation by clicking it. To make it look cool though, we need to apply a different material to the mesh. We could create a new material from scratch, or use one from the built-in starter content. Looks cool, but now we need some lighting. We could add a light actor, or better yet, use the environment light mixer to quickly add lights and atmosphere to the level. Now we need to create some land. Let's go into landscape mode, choose a material, like moss or gravel, then create it. We now have a flat surface to walk on, and we can sculpt it into mountains and valleys with the brush tool. Now go back to selection mode, select the cube, and tick the box to simulate physics. When you click play, you should now see the cube roll down the hill. But a game needs a controllable player, so let's add a character actor to the scene. And now it's time to do some actual programming with blueprints. Create a game mode blueprint to define the rules and scoring system of your game, then another blueprint for the character, then give the character a brain with a controller blueprint. If we open that blueprint, we can start coding game logic here in the event graph. Begin play runs when the level first loads, while tick runs on every frame. Now there are tons of built-in functions that you can run in response to these events, like print string. We can execute this function on every frame by connecting it to the tick event. And now when we run the game, it won't stop printing hello world. With blueprints, you connect events, nodes, functions, and variables together to create interactive game elements. This has been Unreal Engine in 100 seconds. Hit the like button and let me know if you want to see a full Unreal tutorial in the comments. Thanks for watching, and I will see you in the next one."
+      },
+      {
+        "language": "English",
+        "text": " At its core, the engine provides a standard architecture for implementing highly complex requirements,",
+        "timestamp": "00:00:24",
+        "transcript": "Unreal Engine, a suite of developer tools for building world-class interactive 3D experiences. It was created by Tim Sweeney at Epic Games in 1995, is written in C++, and was originally designed for first-person 3D shooter games. Today it's used to build AAA games like Fortnite, or visual effects in TV shows like The Mandalorian, VR simulation in medicine and aviation, in addition to independent games by developers like you. At its core, the engine provides a standard architecture for implementing highly complex requirements, like 3D rendering, physics, animation, ray tracing, and a lot more. All this magic is accessible via its visual editor, where you can easily create levels and fill them with 3D objects called actors. Then to make a game interactive, it provides a visual scripting language called Blueprint, where you can program game logic without ever writing your own C++ code. When your creation is complete, Unreal can package it for desktop, mobile, and virtually any game console or VR platform. To build the next AAA billion dollar game franchise right now, download the Epic Games launcher, install Unreal Engine, and create a new project. First, go down to the content drawer, which is where all the game assets are saved. From here we can right-click to create a new level. Then from the top nav bar, add our first actor to it, like a shape that the player can collide with. It's currently invisible, but we can change the view mode to wireframe to view its geometry. And notice how it's been added to the outliner here, which is a hierarchy of your game objects. If we select the cube, we can now modify its properties. Its physical shape is defined by a mesh, which we can modify in isolation by clicking it. To make it look cool though, we need to apply a different material to the mesh. We could create a new material from scratch, or use one from the built-in starter content. Looks cool, but now we need some lighting. We could add a light actor, or better yet, use the environment light mixer to quickly add lights and atmosphere to the level. Now we need to create some land. Let's go into landscape mode, choose a material, like moss or gravel, then create it. We now have a flat surface to walk on, and we can sculpt it into mountains and valleys with the brush tool. Now go back to selection mode, select the cube, and tick the box to simulate physics. When you click play, you should now see the cube roll down the hill. But a game needs a controllable player, so let's add a character actor to the scene. And now it's time to do some actual programming with blueprints. Create a game mode blueprint to define the rules and scoring system of your game, then another blueprint for the character, then give the character a brain with a controller blueprint. If we open that blueprint, we can start coding game logic here in the event graph. Begin play runs when the level first loads, while tick runs on every frame. Now there are tons of built-in functions that you can run in response to these events, like print string. We can execute this function on every frame by connecting it to the tick event. And now when we run the game, it won't stop printing hello world. With blueprints, you connect events, nodes, functions, and variables together to create interactive game elements. This has been Unreal Engine in 100 seconds. Hit the like button and let me know if you want to see a full Unreal tutorial in the comments. Thanks for watching, and I will see you in the next one."
+      },
+      {
+        "language": "English",
+        "text": " like 3D rendering, physics, animation, ray tracing, and a lot more.",
+        "timestamp": "00:00:29",
+        "transcript": "Unreal Engine, a suite of developer tools for building world-class interactive 3D experiences. It was created by Tim Sweeney at Epic Games in 1995, is written in C++, and was originally designed for first-person 3D shooter games. Today it's used to build AAA games like Fortnite, or visual effects in TV shows like The Mandalorian, VR simulation in medicine and aviation, in addition to independent games by developers like you. At its core, the engine provides a standard architecture for implementing highly complex requirements, like 3D rendering, physics, animation, ray tracing, and a lot more. All this magic is accessible via its visual editor, where you can easily create levels and fill them with 3D objects called actors. Then to make a game interactive, it provides a visual scripting language called Blueprint, where you can program game logic without ever writing your own C++ code. When your creation is complete, Unreal can package it for desktop, mobile, and virtually any game console or VR platform. To build the next AAA billion dollar game franchise right now, download the Epic Games launcher, install Unreal Engine, and create a new project. First, go down to the content drawer, which is where all the game assets are saved. From here we can right-click to create a new level. Then from the top nav bar, add our first actor to it, like a shape that the player can collide with. It's currently invisible, but we can change the view mode to wireframe to view its geometry. And notice how it's been added to the outliner here, which is a hierarchy of your game objects. If we select the cube, we can now modify its properties. Its physical shape is defined by a mesh, which we can modify in isolation by clicking it. To make it look cool though, we need to apply a different material to the mesh. We could create a new material from scratch, or use one from the built-in starter content. Looks cool, but now we need some lighting. We could add a light actor, or better yet, use the environment light mixer to quickly add lights and atmosphere to the level. Now we need to create some land. Let's go into landscape mode, choose a material, like moss or gravel, then create it. We now have a flat surface to walk on, and we can sculpt it into mountains and valleys with the brush tool. Now go back to selection mode, select the cube, and tick the box to simulate physics. When you click play, you should now see the cube roll down the hill. But a game needs a controllable player, so let's add a character actor to the scene. And now it's time to do some actual programming with blueprints. Create a game mode blueprint to define the rules and scoring system of your game, then another blueprint for the character, then give the character a brain with a controller blueprint. If we open that blueprint, we can start coding game logic here in the event graph. Begin play runs when the level first loads, while tick runs on every frame. Now there are tons of built-in functions that you can run in response to these events, like print string. We can execute this function on every frame by connecting it to the tick event. And now when we run the game, it won't stop printing hello world. With blueprints, you connect events, nodes, functions, and variables together to create interactive game elements. This has been Unreal Engine in 100 seconds. Hit the like button and let me know if you want to see a full Unreal tutorial in the comments. Thanks for watching, and I will see you in the next one."
+      },
+      {
+        "language": "English",
+        "text": " All this magic is accessible via its visual editor, where you can easily create levels and fill them with 3D objects called actors.",
+        "timestamp": "00:00:33",
+        "transcript": "Unreal Engine, a suite of developer tools for building world-class interactive 3D experiences. It was created by Tim Sweeney at Epic Games in 1995, is written in C++, and was originally designed for first-person 3D shooter games. Today it's used to build AAA games like Fortnite, or visual effects in TV shows like The Mandalorian, VR simulation in medicine and aviation, in addition to independent games by developers like you. At its core, the engine provides a standard architecture for implementing highly complex requirements, like 3D rendering, physics, animation, ray tracing, and a lot more. All this magic is accessible via its visual editor, where you can easily create levels and fill them with 3D objects called actors. Then to make a game interactive, it provides a visual scripting language called Blueprint, where you can program game logic without ever writing your own C++ code. When your creation is complete, Unreal can package it for desktop, mobile, and virtually any game console or VR platform. To build the next AAA billion dollar game franchise right now, download the Epic Games launcher, install Unreal Engine, and create a new project. First, go down to the content drawer, which is where all the game assets are saved. From here we can right-click to create a new level. Then from the top nav bar, add our first actor to it, like a shape that the player can collide with. It's currently invisible, but we can change the view mode to wireframe to view its geometry. And notice how it's been added to the outliner here, which is a hierarchy of your game objects. If we select the cube, we can now modify its properties. Its physical shape is defined by a mesh, which we can modify in isolation by clicking it. To make it look cool though, we need to apply a different material to the mesh. We could create a new material from scratch, or use one from the built-in starter content. Looks cool, but now we need some lighting. We could add a light actor, or better yet, use the environment light mixer to quickly add lights and atmosphere to the level. Now we need to create some land. Let's go into landscape mode, choose a material, like moss or gravel, then create it. We now have a flat surface to walk on, and we can sculpt it into mountains and valleys with the brush tool. Now go back to selection mode, select the cube, and tick the box to simulate physics. When you click play, you should now see the cube roll down the hill. But a game needs a controllable player, so let's add a character actor to the scene. And now it's time to do some actual programming with blueprints. Create a game mode blueprint to define the rules and scoring system of your game, then another blueprint for the character, then give the character a brain with a controller blueprint. If we open that blueprint, we can start coding game logic here in the event graph. Begin play runs when the level first loads, while tick runs on every frame. Now there are tons of built-in functions that you can run in response to these events, like print string. We can execute this function on every frame by connecting it to the tick event. And now when we run the game, it won't stop printing hello world. With blueprints, you connect events, nodes, functions, and variables together to create interactive game elements. This has been Unreal Engine in 100 seconds. Hit the like button and let me know if you want to see a full Unreal tutorial in the comments. Thanks for watching, and I will see you in the next one."
+      },
+      {
+        "language": "English",
+        "text": " Then to make a game interactive, it provides a visual scripting language called Blueprint,",
+        "timestamp": "00:00:40",
+        "transcript": "Unreal Engine, a suite of developer tools for building world-class interactive 3D experiences. It was created by Tim Sweeney at Epic Games in 1995, is written in C++, and was originally designed for first-person 3D shooter games. Today it's used to build AAA games like Fortnite, or visual effects in TV shows like The Mandalorian, VR simulation in medicine and aviation, in addition to independent games by developers like you. At its core, the engine provides a standard architecture for implementing highly complex requirements, like 3D rendering, physics, animation, ray tracing, and a lot more. All this magic is accessible via its visual editor, where you can easily create levels and fill them with 3D objects called actors. Then to make a game interactive, it provides a visual scripting language called Blueprint, where you can program game logic without ever writing your own C++ code. When your creation is complete, Unreal can package it for desktop, mobile, and virtually any game console or VR platform. To build the next AAA billion dollar game franchise right now, download the Epic Games launcher, install Unreal Engine, and create a new project. First, go down to the content drawer, which is where all the game assets are saved. From here we can right-click to create a new level. Then from the top nav bar, add our first actor to it, like a shape that the player can collide with. It's currently invisible, but we can change the view mode to wireframe to view its geometry. And notice how it's been added to the outliner here, which is a hierarchy of your game objects. If we select the cube, we can now modify its properties. Its physical shape is defined by a mesh, which we can modify in isolation by clicking it. To make it look cool though, we need to apply a different material to the mesh. We could create a new material from scratch, or use one from the built-in starter content. Looks cool, but now we need some lighting. We could add a light actor, or better yet, use the environment light mixer to quickly add lights and atmosphere to the level. Now we need to create some land. Let's go into landscape mode, choose a material, like moss or gravel, then create it. We now have a flat surface to walk on, and we can sculpt it into mountains and valleys with the brush tool. Now go back to selection mode, select the cube, and tick the box to simulate physics. When you click play, you should now see the cube roll down the hill. But a game needs a controllable player, so let's add a character actor to the scene. And now it's time to do some actual programming with blueprints. Create a game mode blueprint to define the rules and scoring system of your game, then another blueprint for the character, then give the character a brain with a controller blueprint. If we open that blueprint, we can start coding game logic here in the event graph. Begin play runs when the level first loads, while tick runs on every frame. Now there are tons of built-in functions that you can run in response to these events, like print string. We can execute this function on every frame by connecting it to the tick event. And now when we run the game, it won't stop printing hello world. With blueprints, you connect events, nodes, functions, and variables together to create interactive game elements. This has been Unreal Engine in 100 seconds. Hit the like button and let me know if you want to see a full Unreal tutorial in the comments. Thanks for watching, and I will see you in the next one."
+      },
+      {
+        "language": "English",
+        "text": " where you can program game logic without ever writing your own C++ code.",
+        "timestamp": "00:00:44",
+        "transcript": "Unreal Engine, a suite of developer tools for building world-class interactive 3D experiences. It was created by Tim Sweeney at Epic Games in 1995, is written in C++, and was originally designed for first-person 3D shooter games. Today it's used to build AAA games like Fortnite, or visual effects in TV shows like The Mandalorian, VR simulation in medicine and aviation, in addition to independent games by developers like you. At its core, the engine provides a standard architecture for implementing highly complex requirements, like 3D rendering, physics, animation, ray tracing, and a lot more. All this magic is accessible via its visual editor, where you can easily create levels and fill them with 3D objects called actors. Then to make a game interactive, it provides a visual scripting language called Blueprint, where you can program game logic without ever writing your own C++ code. When your creation is complete, Unreal can package it for desktop, mobile, and virtually any game console or VR platform. To build the next AAA billion dollar game franchise right now, download the Epic Games launcher, install Unreal Engine, and create a new project. First, go down to the content drawer, which is where all the game assets are saved. From here we can right-click to create a new level. Then from the top nav bar, add our first actor to it, like a shape that the player can collide with. It's currently invisible, but we can change the view mode to wireframe to view its geometry. And notice how it's been added to the outliner here, which is a hierarchy of your game objects. If we select the cube, we can now modify its properties. Its physical shape is defined by a mesh, which we can modify in isolation by clicking it. To make it look cool though, we need to apply a different material to the mesh. We could create a new material from scratch, or use one from the built-in starter content. Looks cool, but now we need some lighting. We could add a light actor, or better yet, use the environment light mixer to quickly add lights and atmosphere to the level. Now we need to create some land. Let's go into landscape mode, choose a material, like moss or gravel, then create it. We now have a flat surface to walk on, and we can sculpt it into mountains and valleys with the brush tool. Now go back to selection mode, select the cube, and tick the box to simulate physics. When you click play, you should now see the cube roll down the hill. But a game needs a controllable player, so let's add a character actor to the scene. And now it's time to do some actual programming with blueprints. Create a game mode blueprint to define the rules and scoring system of your game, then another blueprint for the character, then give the character a brain with a controller blueprint. If we open that blueprint, we can start coding game logic here in the event graph. Begin play runs when the level first loads, while tick runs on every frame. Now there are tons of built-in functions that you can run in response to these events, like print string. We can execute this function on every frame by connecting it to the tick event. And now when we run the game, it won't stop printing hello world. With blueprints, you connect events, nodes, functions, and variables together to create interactive game elements. This has been Unreal Engine in 100 seconds. Hit the like button and let me know if you want to see a full Unreal tutorial in the comments. Thanks for watching, and I will see you in the next one."
+      },
+      {
+        "language": "English",
+        "text": " When your creation is complete, Unreal can package it for desktop, mobile, and virtually any game console or VR platform.",
+        "timestamp": "00:00:48",
+        "transcript": "Unreal Engine, a suite of developer tools for building world-class interactive 3D experiences. It was created by Tim Sweeney at Epic Games in 1995, is written in C++, and was originally designed for first-person 3D shooter games. Today it's used to build AAA games like Fortnite, or visual effects in TV shows like The Mandalorian, VR simulation in medicine and aviation, in addition to independent games by developers like you. At its core, the engine provides a standard architecture for implementing highly complex requirements, like 3D rendering, physics, animation, ray tracing, and a lot more. All this magic is accessible via its visual editor, where you can easily create levels and fill them with 3D objects called actors. Then to make a game interactive, it provides a visual scripting language called Blueprint, where you can program game logic without ever writing your own C++ code. When your creation is complete, Unreal can package it for desktop, mobile, and virtually any game console or VR platform. To build the next AAA billion dollar game franchise right now, download the Epic Games launcher, install Unreal Engine, and create a new project. First, go down to the content drawer, which is where all the game assets are saved. From here we can right-click to create a new level. Then from the top nav bar, add our first actor to it, like a shape that the player can collide with. It's currently invisible, but we can change the view mode to wireframe to view its geometry. And notice how it's been added to the outliner here, which is a hierarchy of your game objects. If we select the cube, we can now modify its properties. Its physical shape is defined by a mesh, which we can modify in isolation by clicking it. To make it look cool though, we need to apply a different material to the mesh. We could create a new material from scratch, or use one from the built-in starter content. Looks cool, but now we need some lighting. We could add a light actor, or better yet, use the environment light mixer to quickly add lights and atmosphere to the level. Now we need to create some land. Let's go into landscape mode, choose a material, like moss or gravel, then create it. We now have a flat surface to walk on, and we can sculpt it into mountains and valleys with the brush tool. Now go back to selection mode, select the cube, and tick the box to simulate physics. When you click play, you should now see the cube roll down the hill. But a game needs a controllable player, so let's add a character actor to the scene. And now it's time to do some actual programming with blueprints. Create a game mode blueprint to define the rules and scoring system of your game, then another blueprint for the character, then give the character a brain with a controller blueprint. If we open that blueprint, we can start coding game logic here in the event graph. Begin play runs when the level first loads, while tick runs on every frame. Now there are tons of built-in functions that you can run in response to these events, like print string. We can execute this function on every frame by connecting it to the tick event. And now when we run the game, it won't stop printing hello world. With blueprints, you connect events, nodes, functions, and variables together to create interactive game elements. This has been Unreal Engine in 100 seconds. Hit the like button and let me know if you want to see a full Unreal tutorial in the comments. Thanks for watching, and I will see you in the next one."
+      },
+      {
+        "language": "English",
+        "text": " To build the next AAA billion dollar game franchise right now,",
+        "timestamp": "00:00:54",
+        "transcript": "Unreal Engine, a suite of developer tools for building world-class interactive 3D experiences. It was created by Tim Sweeney at Epic Games in 1995, is written in C++, and was originally designed for first-person 3D shooter games. Today it's used to build AAA games like Fortnite, or visual effects in TV shows like The Mandalorian, VR simulation in medicine and aviation, in addition to independent games by developers like you. At its core, the engine provides a standard architecture for implementing highly complex requirements, like 3D rendering, physics, animation, ray tracing, and a lot more. All this magic is accessible via its visual editor, where you can easily create levels and fill them with 3D objects called actors. Then to make a game interactive, it provides a visual scripting language called Blueprint, where you can program game logic without ever writing your own C++ code. When your creation is complete, Unreal can package it for desktop, mobile, and virtually any game console or VR platform. To build the next AAA billion dollar game franchise right now, download the Epic Games launcher, install Unreal Engine, and create a new project. First, go down to the content drawer, which is where all the game assets are saved. From here we can right-click to create a new level. Then from the top nav bar, add our first actor to it, like a shape that the player can collide with. It's currently invisible, but we can change the view mode to wireframe to view its geometry. And notice how it's been added to the outliner here, which is a hierarchy of your game objects. If we select the cube, we can now modify its properties. Its physical shape is defined by a mesh, which we can modify in isolation by clicking it. To make it look cool though, we need to apply a different material to the mesh. We could create a new material from scratch, or use one from the built-in starter content. Looks cool, but now we need some lighting. We could add a light actor, or better yet, use the environment light mixer to quickly add lights and atmosphere to the level. Now we need to create some land. Let's go into landscape mode, choose a material, like moss or gravel, then create it. We now have a flat surface to walk on, and we can sculpt it into mountains and valleys with the brush tool. Now go back to selection mode, select the cube, and tick the box to simulate physics. When you click play, you should now see the cube roll down the hill. But a game needs a controllable player, so let's add a character actor to the scene. And now it's time to do some actual programming with blueprints. Create a game mode blueprint to define the rules and scoring system of your game, then another blueprint for the character, then give the character a brain with a controller blueprint. If we open that blueprint, we can start coding game logic here in the event graph. Begin play runs when the level first loads, while tick runs on every frame. Now there are tons of built-in functions that you can run in response to these events, like print string. We can execute this function on every frame by connecting it to the tick event. And now when we run the game, it won't stop printing hello world. With blueprints, you connect events, nodes, functions, and variables together to create interactive game elements. This has been Unreal Engine in 100 seconds. Hit the like button and let me know if you want to see a full Unreal tutorial in the comments. Thanks for watching, and I will see you in the next one."
+      },
+      {
+        "language": "English",
+        "text": " download the Epic Games launcher, install Unreal Engine, and create a new project.",
+        "timestamp": "00:00:57",
+        "transcript": "Unreal Engine, a suite of developer tools for building world-class interactive 3D experiences. It was created by Tim Sweeney at Epic Games in 1995, is written in C++, and was originally designed for first-person 3D shooter games. Today it's used to build AAA games like Fortnite, or visual effects in TV shows like The Mandalorian, VR simulation in medicine and aviation, in addition to independent games by developers like you. At its core, the engine provides a standard architecture for implementing highly complex requirements, like 3D rendering, physics, animation, ray tracing, and a lot more. All this magic is accessible via its visual editor, where you can easily create levels and fill them with 3D objects called actors. Then to make a game interactive, it provides a visual scripting language called Blueprint, where you can program game logic without ever writing your own C++ code. When your creation is complete, Unreal can package it for desktop, mobile, and virtually any game console or VR platform. To build the next AAA billion dollar game franchise right now, download the Epic Games launcher, install Unreal Engine, and create a new project. First, go down to the content drawer, which is where all the game assets are saved. From here we can right-click to create a new level. Then from the top nav bar, add our first actor to it, like a shape that the player can collide with. It's currently invisible, but we can change the view mode to wireframe to view its geometry. And notice how it's been added to the outliner here, which is a hierarchy of your game objects. If we select the cube, we can now modify its properties. Its physical shape is defined by a mesh, which we can modify in isolation by clicking it. To make it look cool though, we need to apply a different material to the mesh. We could create a new material from scratch, or use one from the built-in starter content. Looks cool, but now we need some lighting. We could add a light actor, or better yet, use the environment light mixer to quickly add lights and atmosphere to the level. Now we need to create some land. Let's go into landscape mode, choose a material, like moss or gravel, then create it. We now have a flat surface to walk on, and we can sculpt it into mountains and valleys with the brush tool. Now go back to selection mode, select the cube, and tick the box to simulate physics. When you click play, you should now see the cube roll down the hill. But a game needs a controllable player, so let's add a character actor to the scene. And now it's time to do some actual programming with blueprints. Create a game mode blueprint to define the rules and scoring system of your game, then another blueprint for the character, then give the character a brain with a controller blueprint. If we open that blueprint, we can start coding game logic here in the event graph. Begin play runs when the level first loads, while tick runs on every frame. Now there are tons of built-in functions that you can run in response to these events, like print string. We can execute this function on every frame by connecting it to the tick event. And now when we run the game, it won't stop printing hello world. With blueprints, you connect events, nodes, functions, and variables together to create interactive game elements. This has been Unreal Engine in 100 seconds. Hit the like button and let me know if you want to see a full Unreal tutorial in the comments. Thanks for watching, and I will see you in the next one."
+      },
+      {
+        "language": "English",
+        "text": " First, go down to the content drawer, which is where all the game assets are saved.",
+        "timestamp": "00:01:01",
+        "transcript": "Unreal Engine, a suite of developer tools for building world-class interactive 3D experiences. It was created by Tim Sweeney at Epic Games in 1995, is written in C++, and was originally designed for first-person 3D shooter games. Today it's used to build AAA games like Fortnite, or visual effects in TV shows like The Mandalorian, VR simulation in medicine and aviation, in addition to independent games by developers like you. At its core, the engine provides a standard architecture for implementing highly complex requirements, like 3D rendering, physics, animation, ray tracing, and a lot more. All this magic is accessible via its visual editor, where you can easily create levels and fill them with 3D objects called actors. Then to make a game interactive, it provides a visual scripting language called Blueprint, where you can program game logic without ever writing your own C++ code. When your creation is complete, Unreal can package it for desktop, mobile, and virtually any game console or VR platform. To build the next AAA billion dollar game franchise right now, download the Epic Games launcher, install Unreal Engine, and create a new project. First, go down to the content drawer, which is where all the game assets are saved. From here we can right-click to create a new level. Then from the top nav bar, add our first actor to it, like a shape that the player can collide with. It's currently invisible, but we can change the view mode to wireframe to view its geometry. And notice how it's been added to the outliner here, which is a hierarchy of your game objects. If we select the cube, we can now modify its properties. Its physical shape is defined by a mesh, which we can modify in isolation by clicking it. To make it look cool though, we need to apply a different material to the mesh. We could create a new material from scratch, or use one from the built-in starter content. Looks cool, but now we need some lighting. We could add a light actor, or better yet, use the environment light mixer to quickly add lights and atmosphere to the level. Now we need to create some land. Let's go into landscape mode, choose a material, like moss or gravel, then create it. We now have a flat surface to walk on, and we can sculpt it into mountains and valleys with the brush tool. Now go back to selection mode, select the cube, and tick the box to simulate physics. When you click play, you should now see the cube roll down the hill. But a game needs a controllable player, so let's add a character actor to the scene. And now it's time to do some actual programming with blueprints. Create a game mode blueprint to define the rules and scoring system of your game, then another blueprint for the character, then give the character a brain with a controller blueprint. If we open that blueprint, we can start coding game logic here in the event graph. Begin play runs when the level first loads, while tick runs on every frame. Now there are tons of built-in functions that you can run in response to these events, like print string. We can execute this function on every frame by connecting it to the tick event. And now when we run the game, it won't stop printing hello world. With blueprints, you connect events, nodes, functions, and variables together to create interactive game elements. This has been Unreal Engine in 100 seconds. Hit the like button and let me know if you want to see a full Unreal tutorial in the comments. Thanks for watching, and I will see you in the next one."
+      },
+      {
+        "language": "English",
+        "text": " From here we can right-click to create a new level.",
+        "timestamp": "00:01:05",
+        "transcript": "Unreal Engine, a suite of developer tools for building world-class interactive 3D experiences. It was created by Tim Sweeney at Epic Games in 1995, is written in C++, and was originally designed for first-person 3D shooter games. Today it's used to build AAA games like Fortnite, or visual effects in TV shows like The Mandalorian, VR simulation in medicine and aviation, in addition to independent games by developers like you. At its core, the engine provides a standard architecture for implementing highly complex requirements, like 3D rendering, physics, animation, ray tracing, and a lot more. All this magic is accessible via its visual editor, where you can easily create levels and fill them with 3D objects called actors. Then to make a game interactive, it provides a visual scripting language called Blueprint, where you can program game logic without ever writing your own C++ code. When your creation is complete, Unreal can package it for desktop, mobile, and virtually any game console or VR platform. To build the next AAA billion dollar game franchise right now, download the Epic Games launcher, install Unreal Engine, and create a new project. First, go down to the content drawer, which is where all the game assets are saved. From here we can right-click to create a new level. Then from the top nav bar, add our first actor to it, like a shape that the player can collide with. It's currently invisible, but we can change the view mode to wireframe to view its geometry. And notice how it's been added to the outliner here, which is a hierarchy of your game objects. If we select the cube, we can now modify its properties. Its physical shape is defined by a mesh, which we can modify in isolation by clicking it. To make it look cool though, we need to apply a different material to the mesh. We could create a new material from scratch, or use one from the built-in starter content. Looks cool, but now we need some lighting. We could add a light actor, or better yet, use the environment light mixer to quickly add lights and atmosphere to the level. Now we need to create some land. Let's go into landscape mode, choose a material, like moss or gravel, then create it. We now have a flat surface to walk on, and we can sculpt it into mountains and valleys with the brush tool. Now go back to selection mode, select the cube, and tick the box to simulate physics. When you click play, you should now see the cube roll down the hill. But a game needs a controllable player, so let's add a character actor to the scene. And now it's time to do some actual programming with blueprints. Create a game mode blueprint to define the rules and scoring system of your game, then another blueprint for the character, then give the character a brain with a controller blueprint. If we open that blueprint, we can start coding game logic here in the event graph. Begin play runs when the level first loads, while tick runs on every frame. Now there are tons of built-in functions that you can run in response to these events, like print string. We can execute this function on every frame by connecting it to the tick event. And now when we run the game, it won't stop printing hello world. With blueprints, you connect events, nodes, functions, and variables together to create interactive game elements. This has been Unreal Engine in 100 seconds. Hit the like button and let me know if you want to see a full Unreal tutorial in the comments. Thanks for watching, and I will see you in the next one."
+      },
+      {
+        "language": "English",
+        "text": " Then from the top nav bar, add our first actor to it, like a shape that the player can collide with.",
+        "timestamp": "00:01:07",
+        "transcript": "Unreal Engine, a suite of developer tools for building world-class interactive 3D experiences. It was created by Tim Sweeney at Epic Games in 1995, is written in C++, and was originally designed for first-person 3D shooter games. Today it's used to build AAA games like Fortnite, or visual effects in TV shows like The Mandalorian, VR simulation in medicine and aviation, in addition to independent games by developers like you. At its core, the engine provides a standard architecture for implementing highly complex requirements, like 3D rendering, physics, animation, ray tracing, and a lot more. All this magic is accessible via its visual editor, where you can easily create levels and fill them with 3D objects called actors. Then to make a game interactive, it provides a visual scripting language called Blueprint, where you can program game logic without ever writing your own C++ code. When your creation is complete, Unreal can package it for desktop, mobile, and virtually any game console or VR platform. To build the next AAA billion dollar game franchise right now, download the Epic Games launcher, install Unreal Engine, and create a new project. First, go down to the content drawer, which is where all the game assets are saved. From here we can right-click to create a new level. Then from the top nav bar, add our first actor to it, like a shape that the player can collide with. It's currently invisible, but we can change the view mode to wireframe to view its geometry. And notice how it's been added to the outliner here, which is a hierarchy of your game objects. If we select the cube, we can now modify its properties. Its physical shape is defined by a mesh, which we can modify in isolation by clicking it. To make it look cool though, we need to apply a different material to the mesh. We could create a new material from scratch, or use one from the built-in starter content. Looks cool, but now we need some lighting. We could add a light actor, or better yet, use the environment light mixer to quickly add lights and atmosphere to the level. Now we need to create some land. Let's go into landscape mode, choose a material, like moss or gravel, then create it. We now have a flat surface to walk on, and we can sculpt it into mountains and valleys with the brush tool. Now go back to selection mode, select the cube, and tick the box to simulate physics. When you click play, you should now see the cube roll down the hill. But a game needs a controllable player, so let's add a character actor to the scene. And now it's time to do some actual programming with blueprints. Create a game mode blueprint to define the rules and scoring system of your game, then another blueprint for the character, then give the character a brain with a controller blueprint. If we open that blueprint, we can start coding game logic here in the event graph. Begin play runs when the level first loads, while tick runs on every frame. Now there are tons of built-in functions that you can run in response to these events, like print string. We can execute this function on every frame by connecting it to the tick event. And now when we run the game, it won't stop printing hello world. With blueprints, you connect events, nodes, functions, and variables together to create interactive game elements. This has been Unreal Engine in 100 seconds. Hit the like button and let me know if you want to see a full Unreal tutorial in the comments. Thanks for watching, and I will see you in the next one."
+      },
+      {
+        "language": "English",
+        "text": " It's currently invisible, but we can change the view mode to wireframe to view its geometry.",
+        "timestamp": "00:01:12",
+        "transcript": "Unreal Engine, a suite of developer tools for building world-class interactive 3D experiences. It was created by Tim Sweeney at Epic Games in 1995, is written in C++, and was originally designed for first-person 3D shooter games. Today it's used to build AAA games like Fortnite, or visual effects in TV shows like The Mandalorian, VR simulation in medicine and aviation, in addition to independent games by developers like you. At its core, the engine provides a standard architecture for implementing highly complex requirements, like 3D rendering, physics, animation, ray tracing, and a lot more. All this magic is accessible via its visual editor, where you can easily create levels and fill them with 3D objects called actors. Then to make a game interactive, it provides a visual scripting language called Blueprint, where you can program game logic without ever writing your own C++ code. When your creation is complete, Unreal can package it for desktop, mobile, and virtually any game console or VR platform. To build the next AAA billion dollar game franchise right now, download the Epic Games launcher, install Unreal Engine, and create a new project. First, go down to the content drawer, which is where all the game assets are saved. From here we can right-click to create a new level. Then from the top nav bar, add our first actor to it, like a shape that the player can collide with. It's currently invisible, but we can change the view mode to wireframe to view its geometry. And notice how it's been added to the outliner here, which is a hierarchy of your game objects. If we select the cube, we can now modify its properties. Its physical shape is defined by a mesh, which we can modify in isolation by clicking it. To make it look cool though, we need to apply a different material to the mesh. We could create a new material from scratch, or use one from the built-in starter content. Looks cool, but now we need some lighting. We could add a light actor, or better yet, use the environment light mixer to quickly add lights and atmosphere to the level. Now we need to create some land. Let's go into landscape mode, choose a material, like moss or gravel, then create it. We now have a flat surface to walk on, and we can sculpt it into mountains and valleys with the brush tool. Now go back to selection mode, select the cube, and tick the box to simulate physics. When you click play, you should now see the cube roll down the hill. But a game needs a controllable player, so let's add a character actor to the scene. And now it's time to do some actual programming with blueprints. Create a game mode blueprint to define the rules and scoring system of your game, then another blueprint for the character, then give the character a brain with a controller blueprint. If we open that blueprint, we can start coding game logic here in the event graph. Begin play runs when the level first loads, while tick runs on every frame. Now there are tons of built-in functions that you can run in response to these events, like print string. We can execute this function on every frame by connecting it to the tick event. And now when we run the game, it won't stop printing hello world. With blueprints, you connect events, nodes, functions, and variables together to create interactive game elements. This has been Unreal Engine in 100 seconds. Hit the like button and let me know if you want to see a full Unreal tutorial in the comments. Thanks for watching, and I will see you in the next one."
+      },
+      {
+        "language": "English",
+        "text": " And notice how it's been added to the outliner here, which is a hierarchy of your game objects.",
+        "timestamp": "00:01:16",
+        "transcript": "Unreal Engine, a suite of developer tools for building world-class interactive 3D experiences. It was created by Tim Sweeney at Epic Games in 1995, is written in C++, and was originally designed for first-person 3D shooter games. Today it's used to build AAA games like Fortnite, or visual effects in TV shows like The Mandalorian, VR simulation in medicine and aviation, in addition to independent games by developers like you. At its core, the engine provides a standard architecture for implementing highly complex requirements, like 3D rendering, physics, animation, ray tracing, and a lot more. All this magic is accessible via its visual editor, where you can easily create levels and fill them with 3D objects called actors. Then to make a game interactive, it provides a visual scripting language called Blueprint, where you can program game logic without ever writing your own C++ code. When your creation is complete, Unreal can package it for desktop, mobile, and virtually any game console or VR platform. To build the next AAA billion dollar game franchise right now, download the Epic Games launcher, install Unreal Engine, and create a new project. First, go down to the content drawer, which is where all the game assets are saved. From here we can right-click to create a new level. Then from the top nav bar, add our first actor to it, like a shape that the player can collide with. It's currently invisible, but we can change the view mode to wireframe to view its geometry. And notice how it's been added to the outliner here, which is a hierarchy of your game objects. If we select the cube, we can now modify its properties. Its physical shape is defined by a mesh, which we can modify in isolation by clicking it. To make it look cool though, we need to apply a different material to the mesh. We could create a new material from scratch, or use one from the built-in starter content. Looks cool, but now we need some lighting. We could add a light actor, or better yet, use the environment light mixer to quickly add lights and atmosphere to the level. Now we need to create some land. Let's go into landscape mode, choose a material, like moss or gravel, then create it. We now have a flat surface to walk on, and we can sculpt it into mountains and valleys with the brush tool. Now go back to selection mode, select the cube, and tick the box to simulate physics. When you click play, you should now see the cube roll down the hill. But a game needs a controllable player, so let's add a character actor to the scene. And now it's time to do some actual programming with blueprints. Create a game mode blueprint to define the rules and scoring system of your game, then another blueprint for the character, then give the character a brain with a controller blueprint. If we open that blueprint, we can start coding game logic here in the event graph. Begin play runs when the level first loads, while tick runs on every frame. Now there are tons of built-in functions that you can run in response to these events, like print string. We can execute this function on every frame by connecting it to the tick event. And now when we run the game, it won't stop printing hello world. With blueprints, you connect events, nodes, functions, and variables together to create interactive game elements. This has been Unreal Engine in 100 seconds. Hit the like button and let me know if you want to see a full Unreal tutorial in the comments. Thanks for watching, and I will see you in the next one."
+      },
+      {
+        "language": "English",
+        "text": " If we select the cube, we can now modify its properties.",
+        "timestamp": "00:01:21",
+        "transcript": "Unreal Engine, a suite of developer tools for building world-class interactive 3D experiences. It was created by Tim Sweeney at Epic Games in 1995, is written in C++, and was originally designed for first-person 3D shooter games. Today it's used to build AAA games like Fortnite, or visual effects in TV shows like The Mandalorian, VR simulation in medicine and aviation, in addition to independent games by developers like you. At its core, the engine provides a standard architecture for implementing highly complex requirements, like 3D rendering, physics, animation, ray tracing, and a lot more. All this magic is accessible via its visual editor, where you can easily create levels and fill them with 3D objects called actors. Then to make a game interactive, it provides a visual scripting language called Blueprint, where you can program game logic without ever writing your own C++ code. When your creation is complete, Unreal can package it for desktop, mobile, and virtually any game console or VR platform. To build the next AAA billion dollar game franchise right now, download the Epic Games launcher, install Unreal Engine, and create a new project. First, go down to the content drawer, which is where all the game assets are saved. From here we can right-click to create a new level. Then from the top nav bar, add our first actor to it, like a shape that the player can collide with. It's currently invisible, but we can change the view mode to wireframe to view its geometry. And notice how it's been added to the outliner here, which is a hierarchy of your game objects. If we select the cube, we can now modify its properties. Its physical shape is defined by a mesh, which we can modify in isolation by clicking it. To make it look cool though, we need to apply a different material to the mesh. We could create a new material from scratch, or use one from the built-in starter content. Looks cool, but now we need some lighting. We could add a light actor, or better yet, use the environment light mixer to quickly add lights and atmosphere to the level. Now we need to create some land. Let's go into landscape mode, choose a material, like moss or gravel, then create it. We now have a flat surface to walk on, and we can sculpt it into mountains and valleys with the brush tool. Now go back to selection mode, select the cube, and tick the box to simulate physics. When you click play, you should now see the cube roll down the hill. But a game needs a controllable player, so let's add a character actor to the scene. And now it's time to do some actual programming with blueprints. Create a game mode blueprint to define the rules and scoring system of your game, then another blueprint for the character, then give the character a brain with a controller blueprint. If we open that blueprint, we can start coding game logic here in the event graph. Begin play runs when the level first loads, while tick runs on every frame. Now there are tons of built-in functions that you can run in response to these events, like print string. We can execute this function on every frame by connecting it to the tick event. And now when we run the game, it won't stop printing hello world. With blueprints, you connect events, nodes, functions, and variables together to create interactive game elements. This has been Unreal Engine in 100 seconds. Hit the like button and let me know if you want to see a full Unreal tutorial in the comments. Thanks for watching, and I will see you in the next one."
+      },
+
+后端route：from flask import Blueprint, jsonify, request
+from .controllers import transcribe as ctrl_transcribe
+from .controllers import generate_content as ctrl_generate_content
+from .controllers import youtube_process as ctrl_youtube_process
+from .controllers import download_audio_yt_dlp as ctrl_download_audio_yt_dlp
+from .controllers import extract_youtube_id as ctrl_extract_youtube_id
+from .controllers import rephrase_process as ctrl_rephrase_process
+from .controllers import chat_process as ctrl_chat_process
+
+main = Blueprint('main', __name__)
+
+
+@main.route('/')
+def hello_world():
+    """
+    A simple hello world message
+    ---
+    responses:
+      200:
+        description: A simple hello world message
+        examples:
+          application/json: { "message": "Hello, Lyra! Now we support CICD!" }
+    """
+
+    return jsonify(message='Hello, Lyra! Now we support CICD!')
+
+
+@main.route('/extract_youtube_id', methods=['POST'])
+def extract_id():
+    """
+    Extract YouTube ID
+    ---
+    parameters:
+      - name: url
+        in: body
+        type: string
+        required: true
+
+    responses:
+      200:
+        description: YouTube video ID
+        examples:
+          application/json: { "video_id": "dQw4w9WgXcQ" }
+    """
+
+    url = request.json['url']
+    video_id = ctrl_extract_youtube_id(url)
+    return jsonify(video_id=video_id)
+
+
+# @main.route('/download_audio_pytube', methods=['POST'])
+# def download_audio_pt():
+#     """
+#     (not stable) Download audio using pytube
+#     ---
+#     parameters:
+#       - name: url
+#         in: body
+#         type: string
+#         required: true
+#       - name: audio_path
+#         in: body
+#         type: string
+#         required: true
+#
+#     responses:
+#       200:
+#         description: Audio download status
+#         examples:
+#           application/json: { "message": "Audio downloaded with pytube" }
+#     """
+#
+#     data = request.json
+#     ctrl_download_audio_pytube(data['url'], data['audio_path'])
+#     return jsonify(message='Audio downloaded with pytube')
+
+
+@main.route('/download_audio_yt_dlp', methods=['POST'])
+def download_audio_yt_dlp():
+    """
+    Download audio using yt-dlp
+    ---
+    parameters:
+      - name: url
+        in: body
+        type: string
+        required: true
+      - name: filename
+        in: body
+        type: string
+        required: true
+      - name: audio_type
+        in: body
+        type: string
+        required: true
+
+    responses:
+      200:
+        description: Audio download status
+        examples:
+          application/json: { "message": "Audio downloaded with yt-dlp" }
+    """
+
+    data = request.json
+    ctrl_download_audio_yt_dlp(data['url'], data['filename'], data['audio_type'])
+    return jsonify(message='Audio downloaded with yt-dlp')
+
+
+# @main.route('/transcribe', methods=['POST'])
+# def transcribe_audio():
+#     """
+#     (no need to call) Request the transcript of the input audio
+#     ---
+#     parameters:
+#       - name: openai_client
+#         in: body
+#         type: string
+#         required: true
+#       - name: audio_path
+#         in: body
+#         type: string
+#         required: true
+#
+#     responses:
+#       200:
+#         description: Transcription result
+#         examples:
+#           application/json: { "result": "Transcription text" }
+#     """
+#
+#     data = request.json
+#     result = ctrl_transcribe(data['openai_client'], data['audio_path'])
+#     return jsonify(result=result)
+
+
+@main.route('/youtube_process', methods=['POST'])
+def youtube_process():
+    """
+    Main process for YouTube video analysis
+    ---
+    parameters:
+      - name: url
+        in: body
+        type: string
+        required: true
+      - name: audio_dir
+        in: body
+        type: string
+        required: true
+      - name: audio_type
+        in: body
+        type: string
+        required: true
+
+    responses:
+      200:
+        description: YouTube video analysis results
+        examples:
+          application/json: { "result": "Transcription text" }
+    """
+
+    data = request.json
+    analysis_results = ctrl_youtube_process(data['url'], data['audio_dir'], data['audio_type'])
+    return jsonify(results=analysis_results)
+
+
+@main.route('/rephrase_process', methods=['POST'])
+def rephrase_process():
+    """
+    Start rephrase task
+    ---
+    parameters:
+      - name: transcript
+        in: body
+        type: string
+        required: true
+      - name: sentence
+        in: body
+        type: string
+        required: true
+      - name: language
+        in: body
+        type: string
+        required: true
+
+    responses:
+      200:
+        description: Rephrased sentence
+        examples:
+          application/json: { "text": "rephrased_sentence" }
+    """
+
+    data = request.json
+    rephrased_sentence = ctrl_rephrase_process(data['transcript'], data['sentence'], data['language'])
+    return jsonify(text=rephrased_sentence)
+
+
+@main.route('/chat_process', methods=['POST'])
+def chat_process():
+    """
+    Request the response to user's input
+    ---
+    parameters:
+      - name: question
+        in: body
+        type: string
+        required: true
+      - name: transcript
+        in: body
+        type: string
+        required: true
+      - name: history
+        in: body
+        type: array
+        required: true
+      - name: language
+        in: body
+        type: string
+        required: true
+
+    responses:
+      200:
+        description: Response of the ChatBot
+        examples:
+          application/json: { "text": "response_sentence" }
+    """
+
+    data = request.json
+    response = ctrl_chat_process(data['question'], data['transcript'], data['history'], data['language'])
+    return jsonify(text=response)

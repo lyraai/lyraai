@@ -39,18 +39,14 @@ export default function Home() {
 
             <div className="mt-8 flex justify-center space-x-4">
               <Link href="/products" legacyBehavior>
-              <a
-                className="px-8 py-3 border border-teal-500 text-teal-500 rounded-lg hover:bg-teal-100"
-              >
-                Learn more
-              </a>
+                <a className="px-8 py-3 border border-teal-500 text-teal-500 rounded-full">
+                  Learn more
+                </a>
               </Link>
               <Link href="/youtubesummary" legacyBehavior>
-              <a
-                className="px-8 py-3 bg-teal-500 text-white rounded-lg hover:bg-teal-700"
-              >
-                Try Demo
-              </a>
+                <a className="px-8 py-3 bg-teal-500 text-white rounded-full">
+                  Try Demo
+                </a>
               </Link>
             </div>
           </div>
@@ -58,7 +54,7 @@ export default function Home() {
           <section id="how-it-works" className="py-20">
             <div className="container mx-auto px-6">
               <div className="text-center mb-16">
-                <p className="text-teal-500 text-sm font-semibold">
+                <p className="text-teal-500 text-sm font-semibold rounded-full">
                   HOW IT WORKS
                 </p>
                 <h2 className="text-4xl font-bold mb-4">
@@ -71,7 +67,7 @@ export default function Home() {
               </div>
 
               <div className="space-y-16">
-                <div className="flex flex-col lg:flex-row items-center lg:space-x-8">
+                <div className="flex flex-col lg:flex-row items-center lg:space-x-8 rounded-full">
                   <div className="lg:w-1/2">
                     <h3 className="text-2xl font-bold mb-4">
                       Automated Candidate Ranking
@@ -85,7 +81,7 @@ export default function Home() {
                       href="https://andrea-montini.lemonsqueezy.com/checkout/buy/f4da987f-2be5-4c3c-b2b2-9a5df3121631?discount=0"
                       target="_blank"
                       rel="noopener"
-                      className="inline-block px-6 py-2 border border-teal-500 text-teal-500 rounded-lg hover:bg-teal-100"
+                      className="inline-block px-6 py-2 border border-teal-500 text-teal-500 rounded-full"
                     >
                       Request demo
                     </a>
@@ -109,7 +105,7 @@ export default function Home() {
                       href="https://andrea-montini.lemonsqueezy.com/checkout/buy/f4da987f-2be5-4c3c-b2b2-9a5df3121631?discount=0"
                       target="_blank"
                       rel="noopener"
-                      className="inline-block px-6 py-2 border border-teal-500 text-teal-500 rounded-lg hover:bg-teal-100"
+                      className="inline-block px-6 py-2 border border-teal-500 text-teal-500 rounded-full"
                     >
                       Request demo
                     </a>
@@ -133,7 +129,7 @@ export default function Home() {
                       href="https://andrea-montini.lemonsqueezy.com/checkout/buy/f4da987f-2be5-4c3c-b2b2-9a5df3121631?discount=0"
                       target="_blank"
                       rel="noopener"
-                      className="inline-block px-6 py-2 border border-teal-500 text-teal-500 rounded-lg hover:bg-teal-100"
+                      className="inline-block px-6 py-2 border border-teal-500 text-teal-500 rounded-full hover:bg-teal-100"
                     >
                       Request demo
                     </a>
@@ -340,7 +336,7 @@ export default function Home() {
                   href="https://www.framer.com/learn/what-is-framer/"
                   target="_blank"
                   rel="noopener"
-                  className="px-8 py-3 border border-teal-500 text-teal-500 rounded-lg hover:bg-teal-100"
+                  className="px-8 py-3 border border-teal-500 text-teal-500 rounded-full"
                 >
                   More stories
                 </a>
