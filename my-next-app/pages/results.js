@@ -325,12 +325,12 @@ export default function Results() {
       setLoading(true);
       setError('');
       const response = await axios.get(
-        `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${YOUTUBE_API_KEY}&part=snippet,statistics`
+        `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${YOUTUBE_API_KEY}&part=snippet,statistics`,
       );
       const videoData = response.data.items[0];
       const channelId = videoData.snippet.channelId;
       const channelResponse = await axios.get(
-        `https://www.googleapis.com/youtube/v3/channels?id=${channelId}&key=${YOUTUBE_API_KEY}&part=snippet`
+        `https://www.googleapis.com/youtube/v3/channels?id=${channelId}&key=${YOUTUBE_API_KEY}&part=snippet`,
       );
       const channelData = channelResponse.data.items[0];
 
@@ -459,7 +459,9 @@ export default function Results() {
                           <div key={index} className="mb-4">
                             <p
                               className="text-blue-500 cursor-pointer"
-                              onClick={() => handleTimestampClick(entry.timestamp)}
+                              onClick={() =>
+                                handleTimestampClick(entry.timestamp)
+                              }
                             >
                               {entry.timestamp}
                             </p>
