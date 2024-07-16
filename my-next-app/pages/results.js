@@ -297,7 +297,7 @@ export default function Results() {
   const [quiz, setQuiz] = useState([]);
   const [keyMoments, setKeyMoments] = useState([]);
 
-  const YOUTUBE_API_KEY = 'YOUR_YOUTUBE_API_KEY';
+  const YOUTUBE_API_KEY = 'AIzaSyDEvBAc2dEd55NMu6mC40JPihhByycvCmQ';
 
   useEffect(() => {
     if (videoUrl) {
