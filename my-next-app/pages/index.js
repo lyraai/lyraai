@@ -45,7 +45,12 @@ export default function Home() {
               </Link>
               <Link href="/youtubesummary" legacyBehavior>
                 <a className="px-8 py-3 bg-teal-500 text-white rounded-full">
-                  Try Demo
+                  Try Lyra
+                </a>
+              </Link>
+              <Link href="/youtubesummary" legacyBehavior>
+                <a className="px-8 py-3 bg-pink-500 text-white rounded-full">
+                  Try semo
                 </a>
               </Link>
             </div>
